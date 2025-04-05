@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 				result.remove_at(i)
 		if result.size() > 0:
 			var rigidbody: RigidBody2D = result[0]["collider"]
-			rigidbody.apply_impulse(Vector2.UP * 1000)
 			holding = rigidbody
 	elif Input.is_action_just_released("Click"):
 		holding = null
