@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://hwr3qacbcdl5"]
+
+[ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_yqjtg"]
+
+[node name="Game" type="Node"]
+
+[node name="Hand" type="Node2D" parent="."]
+script = ExtResource("1_yqjtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_uwrxv")
