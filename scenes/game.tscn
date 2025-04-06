@@ -1256,6 +1256,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_uwrxv")
 
 [node name="PlacementArea" type="Area2D" parent="."]
+collision_mask = 4
 script = ExtResource("5_iywne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
