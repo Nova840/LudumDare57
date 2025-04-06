@@ -12,19 +12,13 @@ var holding: RigidBody2D = null
 
 var holding_local_offset: Vector2
 
+var bodies_able_to_pick_up: Array[RigidBody2D] = []
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Click"):
-		var space := get_world_2d().direct_space_state
-		var parameters := PhysicsPointQueryParameters2D.new()
-		parameters.position = get_global_mouse_position()
-		parameters.collision_mask = pick_up_mask
-		var result := space.intersect_point(parameters)
-		for i in range(result.size() - 1, -1, -1):
-			if result[i]["collider"] is not RigidBody2D:
-				result.remove_at(i)
-		if result.size() > 0:
-			var rigidbody: RigidBody2D = result[0]["collider"]
+		if bodies_able_to_pick_up.size() > 0:
+			var rigidbody: RigidBody2D = bodies_able_to_pick_up[0]
 			holding = rigidbody
 			holding_local_offset = to_local(holding.global_position)
 	elif Input.is_action_just_released("Click"):
@@ -47,3 +41,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_instance_valid(holding):
 		holding.linear_velocity = (to_global(holding_local_offset) - holding.global_position) / delta
+
+
+func _on_pick_up_area_body_entered(body: Node2D) -> void:
+	bodies_able_to_pick_up.append(body)
+
+
+func _on_pick_up_area_body_exited(body: Node2D) -> void:
+	bodies_able_to_pick_up.erase(body)

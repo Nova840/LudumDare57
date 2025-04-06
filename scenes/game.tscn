@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=15 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_yqjtg"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
 radius = 22.55
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -40,6 +43,13 @@ shape = SubResource("CircleShape2D_iywne")
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_uwrxv")
+
+[node name="PickUpArea" type="Area2D" parent="Hand"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/PickUpArea"]
+shape = SubResource("CircleShape2D_0tnpc")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(51, 283)
@@ -1291,4 +1301,6 @@ stream = ExtResource("9_dinhu")
 autoplay = true
 bus = &"Percussion"
 
+[connection signal="body_entered" from="Hand/PickUpArea" to="Hand" method="_on_pick_up_area_body_entered"]
+[connection signal="body_exited" from="Hand/PickUpArea" to="Hand" method="_on_pick_up_area_body_exited"]
 [connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
