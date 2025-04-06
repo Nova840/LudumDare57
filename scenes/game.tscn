@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=10 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://r8jhpqkecrrv" path="res://scripts/camera.gd" id="3_lbhrr"]
 [ext_resource type="TileSet" uid="uid://brnko2s7s3ecn" path="res://images/kitty_tileset.tres" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://b1ktftfsqadcu" path="res://scripts/placement_area.gd" id="5_iywne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+radius = 22.55
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -17,10 +20,14 @@ size = Vector2(70, 35)
 
 [node name="Game" type="Node"]
 
-[node name="Hand" type="Node2D" parent="."]
+[node name="Hand" type="RigidBody2D" parent="."]
+collision_layer = 2
 script = ExtResource("1_yqjtg")
 hand_move_speed = 10.0
 hand_max_speed = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+shape = SubResource("CircleShape2D_iywne")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
 scale = Vector2(0.1, 0.1)
@@ -30,8 +37,8 @@ texture = ExtResource("1_uwrxv")
 position = Vector2(51, 283)
 script = ExtResource("3_lbhrr")
 follow = NodePath("../Hand")
-follow_speed = 0.5
-follow_max_speed = 200.0
+follow_speed = 2.0
+follow_max_speed = 1e+11
 move_deadzone = 200.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -43,6 +50,8 @@ tile_set = ExtResource("3_lnu2h")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Kitty"]
 position = Vector2(11, -189)
+collision_layer = 4
+collision_mask = 7
 metadata/red_kitty = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D"]
@@ -55,6 +64,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D2"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -65,6 +76,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D3"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -75,6 +88,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D4"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -85,6 +100,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D5"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -95,6 +112,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D6" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D6"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -105,6 +124,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D7" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D7"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -115,6 +136,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D8" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D8"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -125,6 +148,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D9" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D9"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -135,6 +160,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D10" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D10"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -145,6 +172,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D11" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D11"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -155,6 +184,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D12" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D12"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -165,6 +196,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D13" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D13"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -175,6 +208,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D14" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D14"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -185,6 +220,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D15" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D15"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -195,6 +232,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D16" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D16"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -205,6 +244,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D17" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D17"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -215,6 +256,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D18" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D18"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -225,6 +268,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D19" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D19"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -235,6 +280,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D20" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D20"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -245,6 +292,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D21" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D21"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -255,6 +304,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D22" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D22"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -265,6 +316,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D23" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D23"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -275,6 +328,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D24" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D24"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -285,6 +340,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D25" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D25"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -295,6 +352,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D26" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D26"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -305,6 +364,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D27" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D27"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -315,6 +376,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D28" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D28"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -325,6 +388,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D29" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D29"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -335,6 +400,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D30" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D30"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -345,6 +412,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D31" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D31"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -355,6 +424,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D32" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D32"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -365,6 +436,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D33" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D33"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -375,6 +448,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D34" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D34"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -385,6 +460,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D35" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D35"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -395,6 +472,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D36" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D36"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -405,6 +484,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D37" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D37"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -415,6 +496,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D38" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D38"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -425,6 +508,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D39" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D39"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -435,6 +520,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D40" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D40"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -445,6 +532,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D41" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D41"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -455,6 +544,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D42" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D42"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -465,6 +556,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D43" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D43"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -475,6 +568,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D44" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D44"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -485,6 +580,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D45" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D45"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -495,6 +592,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D46" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D46"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -505,6 +604,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D47" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D47"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -515,6 +616,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D48" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D48"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -525,6 +628,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D49" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D49"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -535,6 +640,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D50" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D50"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -545,6 +652,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D51" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D51"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -555,6 +664,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D52" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D52"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -565,6 +676,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D53" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D53"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -575,6 +688,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D54" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D54"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -585,6 +700,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D55" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D55"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -595,6 +712,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D56" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D56"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -605,6 +724,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D57" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D57"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -615,6 +736,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D58" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D58"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -625,6 +748,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D59" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D59"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -635,6 +760,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D60" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D60"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -645,6 +772,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D61" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D61"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -655,6 +784,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D62" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D62"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -665,6 +796,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D63" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D63"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -675,6 +808,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D64" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D64"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -685,6 +820,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D65" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D65"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -695,6 +832,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D66" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D66"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -705,6 +844,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D67" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D67"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -715,6 +856,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D68" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D68"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -725,6 +868,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D69" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D69"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -735,6 +880,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D70" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D70"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -745,6 +892,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D71" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D71"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -755,6 +904,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D72" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D72"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -765,6 +916,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D73" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D73"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -775,6 +928,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D74" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D74"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -785,6 +940,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D75" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D75"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -795,6 +952,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D76" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D76"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -805,6 +964,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D77" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D77"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -815,6 +976,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D78" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D78"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -825,6 +988,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D79" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D79"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -835,6 +1000,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D80" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D80"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -845,6 +1012,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D81" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D81"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -855,6 +1024,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D82" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D82"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -865,6 +1036,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D83" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D83"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -875,6 +1048,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D84" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D84"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -885,6 +1060,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D85" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D85"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -895,6 +1072,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D86" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D86"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -905,6 +1084,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D87" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D87"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -915,6 +1096,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D88" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D88"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -925,6 +1108,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D89" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D89"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -935,6 +1120,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D90" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D90"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -945,6 +1132,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D91" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D91"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -955,6 +1144,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D92" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D92"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -965,6 +1156,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D93" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D93"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -975,6 +1168,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D94" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D94"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -985,6 +1180,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D95" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D95"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -995,6 +1192,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D96" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D96"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -1005,6 +1204,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D97" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D97"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -1015,6 +1216,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D98" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D98"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -1025,6 +1228,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D99" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D99"]
 shape = SubResource("CircleShape2D_yqjtg")
@@ -1035,6 +1240,8 @@ texture = ExtResource("1_uwrxv")
 
 [node name="RigidBody2D100" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
+collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D100"]
 shape = SubResource("CircleShape2D_yqjtg")

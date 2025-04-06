@@ -1,13 +1,14 @@
-extends Node2D
+extends RigidBody2D
 class_name Hand
 
+
+@export var hand_move_speed: float
+@export var hand_max_speed: float
 
 var holding: RigidBody2D = null
 
 
 func _process(delta: float) -> void:
-	global_position = get_global_mouse_position()
-
 	if Input.is_action_just_pressed("Click"):
 		var space := get_world_2d().direct_space_state
 		var parameters := PhysicsPointQueryParameters2D.new()
@@ -24,5 +25,10 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var target_global_position := get_global_mouse_position()
+	target_global_position = global_position.lerp(target_global_position, clampf(hand_move_speed * delta, 0, 1))
+	target_global_position = global_position.move_toward(target_global_position, hand_max_speed * delta)
+	linear_velocity = (target_global_position - global_position) / delta
+
 	if is_instance_valid(holding):
 		holding.linear_velocity = (get_global_mouse_position() - holding.global_position) / delta
