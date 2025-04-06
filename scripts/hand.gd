@@ -2,8 +2,10 @@ extends RigidBody2D
 class_name Hand
 
 
-@export var hand_move_speed: float
-@export var hand_max_speed: float
+@export var move_speed: float
+@export var max_speed: float
+@export var rotate_speed: float
+@export var rotate_linear_speed_threshold: float
 @export_flags_2d_physics var pick_up_mask: int
 
 var holding: RigidBody2D = null
@@ -31,9 +33,17 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_global_position := get_global_mouse_position()
-	target_global_position = global_position.lerp(target_global_position, clampf(hand_move_speed * delta, 0, 1))
-	target_global_position = global_position.move_toward(target_global_position, hand_max_speed * delta)
+	target_global_position = global_position.lerp(target_global_position, clampf(move_speed * delta, 0, 1))
+	target_global_position = global_position.move_toward(target_global_position, max_speed * delta)
 	linear_velocity = (target_global_position - global_position) / delta
+
+	var target_global_rotation: float
+	if linear_velocity.length() >= rotate_linear_speed_threshold:
+		target_global_rotation = linear_velocity.angle()
+		target_global_rotation = lerp_angle(global_rotation, target_global_rotation, clampf(rotate_speed * delta, 0, 1))
+	else:
+		target_global_rotation = global_rotation
+	angular_velocity = (target_global_rotation - global_rotation) / delta
 
 	if is_instance_valid(holding):
 		holding.linear_velocity = (to_global(holding_local_offset) - holding.global_position) / delta

@@ -28,8 +28,10 @@ size = Vector2(70, 35)
 position = Vector2(83, 12)
 collision_layer = 2
 script = ExtResource("1_yqjtg")
-hand_move_speed = 10.0
-hand_max_speed = 200.0
+move_speed = 10.0
+max_speed = 200.0
+rotate_speed = 10.0
+rotate_linear_speed_threshold = 30.0
 pick_up_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
