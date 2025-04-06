@@ -16,11 +16,18 @@ config/features=PackedStringArray("4.4")
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://csmljj0ugyqn1"
 
 [debug]
 
 gdscript/warnings/unused_parameter=0
+
+[file_customization]
+
+folder_colors={
+"res://Audio/": "teal",
+"res://Audio/Music/": "purple"
+}
 
 [input]
 

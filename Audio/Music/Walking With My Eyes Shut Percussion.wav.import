@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2aoislu1fr8b"
+path="res://.godot/imported/Walking With My Eyes Shut Percussion.wav-0d55c9ffdfedc8c4f995d18fc7a9dad0.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Walking With My Eyes Shut Percussion.wav"
+dest_files=["res://.godot/imported/Walking With My Eyes Shut Percussion.wav-0d55c9ffdfedc8c4f995d18fc7a9dad0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
