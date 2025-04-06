@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=23 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_yqjtg"]
@@ -9,12 +9,22 @@
 [ext_resource type="AudioStream" uid="uid://ubpwjf28d0br" path="res://Audio/Music/Walking With My Eyes Shut Synths.wav" id="7_vtaks"]
 [ext_resource type="AudioStream" uid="uid://cq86swx0py0na" path="res://Audio/Music/Walking With My Eyes Shut Melody.wav" id="8_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://2aoislu1fr8b" path="res://Audio/Music/Walking With My Eyes Shut Percussion.wav" id="9_dinhu"]
+[ext_resource type="Texture2D" uid="uid://blnnndb6fd4qq" path="res://images/LDGJ - TubeTile w. Registration.png" id="10_ca42v"]
+[ext_resource type="Texture2D" uid="uid://d0c21rx7s5mpu" path="res://images/LDGJ - Palm w. Registration.png" id="11_rysoc"]
+[ext_resource type="Texture2D" uid="uid://7an2tjde3q4d" path="res://images/LDGJ - Index.png" id="12_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://c8ud8m0ntgt86" path="res://images/LDGJ - Middle.png" id="13_264po"]
+[ext_resource type="Texture2D" uid="uid://c2oc2y0t7bv8o" path="res://images/LDGJ - Ring.png" id="14_1kice"]
+[ext_resource type="Texture2D" uid="uid://ddvnfg0v6abe7" path="res://images/LDGJ - Pinky.png" id="15_5newe"]
+[ext_resource type="Texture2D" uid="uid://dw0nw0pb1cfvo" path="res://images/LDGJ - Thumb.png" id="16_37s47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
+size = Vector2(14.4694, 5.34754)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
 radius = 22.55
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 30.0
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -30,6 +40,7 @@ size = Vector2(70, 35)
 [node name="Hand" type="RigidBody2D" parent="."]
 position = Vector2(83, 12)
 collision_layer = 2
+mass = 10.0
 script = ExtResource("1_yqjtg")
 move_speed = 10.0
 max_speed = 200.0
@@ -37,18 +48,74 @@ rotate_speed = 10.0
 rotate_linear_speed_threshold = 30.0
 pick_up_mask = 4
 
+[node name="Ldgj-TubeTileW_Registration2" type="Sprite2D" parent="Hand"]
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_ca42v")
+
+[node name="Ldgj-PalmW_Registration" type="Sprite2D" parent="Hand"]
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("11_rysoc")
+
+[node name="Ldgj-Index" type="Sprite2D" parent="Hand"]
+z_index = -1
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_ssvqc")
+
+[node name="Ldgj-Middle" type="Sprite2D" parent="Hand"]
+z_index = -1
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("13_264po")
+
+[node name="Ldgj-Ring" type="Sprite2D" parent="Hand"]
+z_index = -1
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("14_1kice")
+
+[node name="Ldgj-Pinky" type="Sprite2D" parent="Hand"]
+z_index = -1
+rotation = -1.37406
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("15_5newe")
+
+[node name="Thumb" type="RigidBody2D" parent="Hand"]
+position = Vector2(-6.6395, -11.1337)
+rotation = -1.37406
+collision_layer = 2
+collision_mask = 0
+
+[node name="Ldgj-Thumb" type="Sprite2D" parent="Hand/Thumb"]
+z_index = -1
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("16_37s47")
+offset = Vector2(-192.308, 173.077)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Hand/Thumb"]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = 0.600393
+angular_limit_upper = 1.53938
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Thumb"]
+position = Vector2(6.14771, 3.95999)
+rotation = 0.658539
+shape = SubResource("RectangleShape2D_ca42v")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
 shape = SubResource("CircleShape2D_iywne")
-
-[node name="Sprite2D" type="Sprite2D" parent="Hand"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
 
 [node name="PickUpArea" type="Area2D" parent="Hand"]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/PickUpArea"]
+position = Vector2(6.39167, -1.63508)
 shape = SubResource("CircleShape2D_0tnpc")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
