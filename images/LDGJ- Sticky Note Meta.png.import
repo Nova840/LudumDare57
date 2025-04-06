@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfq5xfwnh7q1n"
-path="res://.godot/imported/LDGJ- Sticky Note Shopping.png-bf71423edfda25fb3af2ae5a7b1200a5.ctex"
+uid="uid://b6872k6px8k4c"
+path="res://.godot/imported/LDGJ- Sticky Note Meta.png-38329a16c624211f8e9c8bf33a81b751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/LDGJ- Sticky Note Shopping.png"
-dest_files=["res://.godot/imported/LDGJ- Sticky Note Shopping.png-bf71423edfda25fb3af2ae5a7b1200a5.ctex"]
+source_file="res://images/LDGJ- Sticky Note Meta.png"
+dest_files=["res://.godot/imported/LDGJ- Sticky Note Meta.png-38329a16c624211f8e9c8bf33a81b751.ctex"]
 
 [params]
 
