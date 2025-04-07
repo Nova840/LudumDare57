@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvc3iplcmkqwk"
+path="res://.godot/imported/Paperclipbump 2.wav-371884e15df5090cfc3ca4b035de35bf.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Objects/Paperclip/Paperclipbump 2.wav"
+dest_files=["res://.godot/imported/Paperclipbump 2.wav-371884e15df5090cfc3ca4b035de35bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

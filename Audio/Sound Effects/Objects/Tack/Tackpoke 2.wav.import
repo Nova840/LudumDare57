@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ngt12x36dk36"
+path="res://.godot/imported/Tackpoke 2.wav-7d587aacbf8c158fe8fe8d96b13eab62.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Objects/Tack/Tackpoke 2.wav"
+dest_files=["res://.godot/imported/Tackpoke 2.wav-7d587aacbf8c158fe8fe8d96b13eab62.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
