@@ -22,7 +22,6 @@ overlay_textures = Array[Texture2D]([ExtResource("2_updku"), ExtResource("3_3d6o
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.308117, -0.382222)
 rotation = 0.96312
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ly3hx")
 
 [node name="Base" type="Sprite2D" parent="."]
