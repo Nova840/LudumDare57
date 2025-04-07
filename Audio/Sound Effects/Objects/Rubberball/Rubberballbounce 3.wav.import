@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bipqbcdn011sr"
+path="res://.godot/imported/Rubberballbounce 3.wav-8ea9ec6296f3717447287d74b2c878bd.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Objects/Rubberball/Rubberballbounce 3.wav"
+dest_files=["res://.godot/imported/Rubberballbounce 3.wav-8ea9ec6296f3717447287d74b2c878bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
