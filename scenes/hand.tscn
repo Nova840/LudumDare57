@@ -13,12 +13,13 @@
 size = Vector2(14.4694, 5.34754)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
-radius = 22.55
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 20.0
+radius = 17.0
 
 [node name="Hand" type="RigidBody2D"]
+z_index = 1
 collision_layer = 2
 mass = 10.0
 contact_monitor = true
@@ -57,25 +58,21 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_ligq1")
 
 [node name="Ldgj-Index" type="Sprite2D" parent="."]
-z_index = -1
 rotation = -1.37406
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_bfalx")
 
 [node name="Ldgj-Middle" type="Sprite2D" parent="."]
-z_index = -1
 rotation = -1.37406
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_ysndn")
 
 [node name="Ldgj-Ring" type="Sprite2D" parent="."]
-z_index = -1
 rotation = -1.37406
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("6_0eb3b")
 
 [node name="Ldgj-Pinky" type="Sprite2D" parent="."]
-z_index = -1
 rotation = -1.37406
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_f44jc")
@@ -106,6 +103,7 @@ rotation = 0.658539
 shape = SubResource("RectangleShape2D_ca42v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.67518, -0.558388)
 shape = SubResource("CircleShape2D_iywne")
 
 [node name="PickUpArea" type="Area2D" parent="."]
@@ -113,7 +111,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
-position = Vector2(6.39167, -1.63508)
+position = Vector2(5.7216, -1.63508)
 shape = SubResource("CircleShape2D_0tnpc")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
