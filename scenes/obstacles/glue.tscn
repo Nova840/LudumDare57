@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://1t5v6uahan4y"]
+
+[ext_resource type="Texture2D" uid="uid://c8ymf7ewrno0y" path="res://images/LDGJ- Glue.png" id="1_xgfat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
+size = Vector2(36.3439, 23.0098)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n8tn"]
+size = Vector2(14.247, 7.17629)
+
+[node name="PushPin" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+metadata/slow = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(4.76387, 3.5906)
+rotation = 0.828566
+shape = SubResource("RectangleShape2D_ly3hx")
+metadata/slow = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-12.4543, -15.1664)
+rotation = 0.828566
+shape = SubResource("RectangleShape2D_4n8tn")
+metadata/slow = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_xgfat")

@@ -4,10 +4,12 @@ class_name Hand
 
 @export var move_speed: float
 @export var max_speed: float
+@export var slow_max_speed: float
 @export var hit_impulse: float
 @export var hit_cooldown: float
 @export var rotate_speed: float
 @export var rotate_linear_speed_threshold: float
+@export var slow_rotate_linear_speed_threshold: float
 @export_flags_2d_physics var pick_up_mask: int
 @export var create_arm_point_distance: float
 
@@ -21,6 +23,7 @@ var hand_rotation_on_pickup: float
 var bodies_able_to_pick_up: Array[RigidBody2D] = []
 var time_last_hit: float = -INF
 var position_last_arm_point_added: Vector2
+var slow: int = 0
 
 
 func _ready() -> void:
@@ -38,7 +41,7 @@ func _process(delta: float) -> void:
 				hand_rotation_on_pickup = global_rotation
 		elif Input.is_action_just_released("Click"):
 			holding = null
-	
+
 	if global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
 		_add_arm_point()
 
@@ -47,11 +50,13 @@ func _physics_process(delta: float) -> void:
 	if not is_stunned():
 		var target_global_position := get_global_mouse_position()
 		target_global_position = global_position.lerp(target_global_position, clampf(move_speed * delta, 0, 1))
-		target_global_position = global_position.move_toward(target_global_position, max_speed * delta)
+		var max_speed_to_use := slow_max_speed if is_slow() else max_speed
+		target_global_position = global_position.move_toward(target_global_position, max_speed_to_use * delta)
 		linear_velocity = (target_global_position - global_position) / delta
 
 		var target_global_rotation: float
-		if linear_velocity.length() >= rotate_linear_speed_threshold:
+		var threshold := slow_rotate_linear_speed_threshold if is_slow() else rotate_linear_speed_threshold
+		if linear_velocity.length() >= threshold:
 			target_global_rotation = linear_velocity.angle()
 			target_global_rotation = lerp_angle(global_rotation, target_global_rotation, clampf(rotate_speed * delta, 0, 1))
 		else:
@@ -84,6 +89,10 @@ func is_stunned() -> bool:
 	return time_last_hit + hit_cooldown * 1000 > Time.get_ticks_msec()
 
 
+func is_slow() -> bool:
+	return slow > 0 or (is_instance_valid(holding) and holding.get_meta("slow", false))
+
+
 func _add_arm_point() -> void:
 	arm_line.add_point(arm_point.global_position)
 	position_last_arm_point_added = arm_point.global_position
@@ -93,5 +102,17 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	if body is not RigidBody2D: return
 	var body_rb := body as RigidBody2D
 	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
+
 	if collision_shape.get_meta("hit", false):
 		hit(collision_shape.global_position)
+	if collision_shape.get_meta("slow", false):
+		slow += 1
+
+
+func _on_body_shape_exited(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	if body is not RigidBody2D: return
+	var body_rb := body as RigidBody2D
+	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
+
+	if collision_shape.get_meta("slow", false):
+		slow -= 1
