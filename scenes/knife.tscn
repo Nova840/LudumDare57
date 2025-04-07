@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bovwaf63802si"]
+
+[ext_resource type="Texture2D" uid="uid://db403wi6fumhi" path="res://images/LDGJ - Knife.png" id="1_ufhdc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
+size = Vector2(52.7876, 17.1583)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n8tn"]
+size = Vector2(77.7814, 16.7018)
+
+[node name="Knife" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(27.3724, 25.0835)
+rotation = 0.881484
+shape = SubResource("RectangleShape2D_ly3hx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-21.4814, -19.6954)
+rotation = 0.881484
+shape = SubResource("RectangleShape2D_4n8tn")
+metadata/hit = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ufhdc")

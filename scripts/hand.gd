@@ -76,7 +76,7 @@ func _on_pick_up_area_body_exited(body: Node2D) -> void:
 
 func hit(position_hit_from: Vector2) -> void:
 	time_last_hit = Time.get_ticks_msec()
-	apply_impulse(hit_impulse * (position_hit_from - global_position).normalized())
+	apply_impulse(hit_impulse * (global_position - position_hit_from).normalized())
 	holding = null
 
 
@@ -87,3 +87,11 @@ func is_stunned() -> bool:
 func _add_arm_point() -> void:
 	arm_line.add_point(arm_point.global_position)
 	position_last_arm_point_added = arm_point.global_position
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	if body is not RigidBody2D: return
+	var body_rb := body as RigidBody2D
+	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
+	if collision_shape.get_meta("hit", false):
+		hit(collision_shape.global_position)

@@ -21,11 +21,13 @@ radius = 20.0
 [node name="Hand" type="RigidBody2D"]
 collision_layer = 2
 mass = 10.0
+contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_ligq1")
 move_speed = 10.0
 max_speed = 200.0
 hit_impulse = 10000.0
-hit_cooldown = 1.0
+hit_cooldown = 2.0
 rotate_speed = 10.0
 rotate_linear_speed_threshold = 30.0
 pick_up_mask = 4
@@ -112,5 +114,6 @@ collision_mask = 4
 position = Vector2(6.39167, -1.63508)
 shape = SubResource("CircleShape2D_0tnpc")
 
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_pick_up_area_body_entered"]
 [connection signal="body_exited" from="PickUpArea" to="." method="_on_pick_up_area_body_exited"]
