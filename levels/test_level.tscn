@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=16 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="1_e7anx"]
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_ur00s"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://76oof5hkjjva" path="res://scenes/obstacles/paper_clip.tscn" id="11_wkb0e"]
 [ext_resource type="PackedScene" uid="uid://brdg7rsbha6l7" path="res://scenes/obstacles/sticky_note.tscn" id="12_paa45"]
 [ext_resource type="PackedScene" uid="uid://dk55x21ca3uat" path="res://scenes/obstacles/rubber_band_ball.tscn" id="13_axl34"]
+[ext_resource type="PackedScene" uid="uid://deu4e823pbvo0" path="res://scenes/obstacles/battery.tscn" id="14_8hjdj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -38,20 +39,6 @@ tile_set = ExtResource("5_4n8tn")
 position = Vector2(129.548, -252.38)
 
 [node name="Kitty" type="Node" parent="."]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Kitty"]
-position = Vector2(129, -76)
-collision_layer = 4
-collision_mask = 7
-metadata/red_kitty = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kitty/RigidBody2D"]
-shape = SubResource("CircleShape2D_yqjtg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D"]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1255,3 +1242,6 @@ position = Vector2(207.163, -27.2729)
 
 [node name="RubberBandBall" parent="." instance=ExtResource("13_axl34")]
 position = Vector2(221.804, -324.086)
+
+[node name="Battery" parent="." instance=ExtResource("14_8hjdj")]
+position = Vector2(385.517, -214.944)

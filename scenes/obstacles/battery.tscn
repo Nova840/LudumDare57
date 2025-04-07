@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://deu4e823pbvo0"]
+
+[ext_resource type="Texture2D" uid="uid://qhc2gl0p2yxu" path="res://images/LDGJ- Battery.png" id="1_kuiix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
+size = Vector2(28.2375, 50.7593)
+
+[node name="Battery" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+metadata/battery = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0.20624, 0.175257)
+shape = SubResource("RectangleShape2D_ly3hx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_kuiix")
