@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c0ol7btu8wjwl"]
+
+[ext_resource type="Texture2D" uid="uid://ciyjqogdj31k8" path="res://images/LDGJ- DrawerWall 90.png" id="1_70hfv"]
+[ext_resource type="Texture2D" uid="uid://dshweq2bijsd7" path="res://images/LDGJ- DrawerWall S.png" id="2_auvju"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_auvju"]
+texture = ExtResource("1_70hfv")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-250.776, -250.776, -512, -250.776, -512, 240.327, 240.327, 240.327, 240.327, -512, -250.776, -512)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87jlx"]
+texture = ExtResource("2_auvju")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-250.776, -512, -250.776, 512, 240.327, 512, 240.327, -512)
+
+[resource]
+tile_size = Vector2i(1024, 1024)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_auvju")
+sources/2 = SubResource("TileSetAtlasSource_87jlx")
