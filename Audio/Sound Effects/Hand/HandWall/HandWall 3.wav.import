@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk8f2sawgvpe2"
+path="res://.godot/imported/HandWall 3.wav-2e505323a5fe6bff761d06f60adcc989.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Hand/HandWall/HandWall 3.wav"
+dest_files=["res://.godot/imported/HandWall 3.wav-2e505323a5fe6bff761d06f60adcc989.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
