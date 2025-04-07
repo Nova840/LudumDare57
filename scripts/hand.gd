@@ -16,6 +16,8 @@ class_name Hand
 
 var holding: RigidBody2D = null
 var holding_local_offset: Vector2
+var holding_global_rotation_on_pickup: float
+var hand_rotation_on_pickup: float
 var bodies_able_to_pick_up: Array[RigidBody2D] = []
 var time_last_hit: float = -INF
 var position_last_arm_point_added: Vector2
@@ -32,6 +34,8 @@ func _process(delta: float) -> void:
 				var rigidbody: RigidBody2D = bodies_able_to_pick_up[0]
 				holding = rigidbody
 				holding_local_offset = to_local(holding.global_position)
+				holding_global_rotation_on_pickup = holding.global_rotation
+				hand_rotation_on_pickup = global_rotation
 		elif Input.is_action_just_released("Click"):
 			holding = null
 	
@@ -56,6 +60,10 @@ func _physics_process(delta: float) -> void:
 
 	if is_instance_valid(holding):
 		holding.linear_velocity = (to_global(holding_local_offset) - holding.global_position) / delta
+		var holding_target_global_rotation = holding_global_rotation_on_pickup + (global_rotation - hand_rotation_on_pickup)
+		# Works better just setting the rotation for some reason
+		#holding.angular_velocity = (holding_target_global_rotation - holding.global_rotation) / delta
+		holding.global_rotation = holding_target_global_rotation
 
 
 func _on_pick_up_area_body_entered(body: Node2D) -> void:
