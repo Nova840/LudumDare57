@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://48qorbbwh4k"]
+
+[ext_resource type="Texture2D" uid="uid://draar5ku0exn4" path="res://images/LDGJ- Push Pin.png" id="1_pgyeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
+size = Vector2(33.424, 20.8171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n8tn"]
+size = Vector2(24.4614, 1.65432)
+
+[node name="PushPin" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(6.66457, 4.07251)
+rotation = 0.737783
+shape = SubResource("RectangleShape2D_ly3hx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-13.8379, -14.8134)
+rotation = 0.737783
+shape = SubResource("RectangleShape2D_4n8tn")
+metadata/hit = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_pgyeo")

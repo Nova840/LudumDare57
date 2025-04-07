@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=11 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="1_e7anx"]
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_ur00s"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://brnko2s7s3ecn" path="res://images/kitty_tileset.tres" id="5_4n8tn"]
 [ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="6_wkb0e"]
 [ext_resource type="PackedScene" uid="uid://bovwaf63802si" path="res://scenes/knife.tscn" id="7_wndkh"]
+[ext_resource type="PackedScene" uid="uid://48qorbbwh4k" path="res://scenes/push_pin.tscn" id="9_ly3hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -1235,3 +1236,6 @@ shape = SubResource("CircleShape2D_yqjtg")
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D100"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_wkb0e")
+
+[node name="PushPin" parent="." instance=ExtResource("9_ly3hx")]
+position = Vector2(107.428, -435.25)
