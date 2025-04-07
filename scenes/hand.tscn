@@ -34,7 +34,7 @@ rotate_speed = 10.0
 rotate_linear_speed_threshold = 30.0
 slow_rotate_linear_speed_threshold = 3.0
 pick_up_mask = 4
-create_arm_point_distance = 25.0
+create_arm_point_distance = 5.0
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)

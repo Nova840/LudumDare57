@@ -42,8 +42,9 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_released("Click"):
 			holding = null
 
-	if global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
+	if arm_point.global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
 		_add_arm_point()
+	arm_line.set_point_position(arm_line.get_point_count() - 1, arm_point.global_position)
 
 
 func _physics_process(delta: float) -> void:
