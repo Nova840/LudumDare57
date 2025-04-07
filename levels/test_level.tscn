@@ -1233,7 +1233,7 @@ texture = ExtResource("6_wkb0e")
 [node name="PushPin" parent="." instance=ExtResource("9_ly3hx")]
 position = Vector2(107.428, -435.25)
 
-[node name="PushPin2" parent="." instance=ExtResource("10_4n8tn")]
+[node name="Glue" parent="." instance=ExtResource("10_4n8tn")]
 position = Vector2(284.361, -131.091)
 
 [node name="PaperClip" parent="." instance=ExtResource("11_wkb0e")]
