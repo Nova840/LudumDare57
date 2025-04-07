@@ -1,138 +1,32 @@
-[gd_scene load_steps=23 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=9 format=4 uid="uid://hwr3qacbcdl5"]
 
-[ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://r8jhpqkecrrv" path="res://scripts/camera.gd" id="3_lbhrr"]
-[ext_resource type="TileSet" uid="uid://brnko2s7s3ecn" path="res://images/kitty_tileset.tres" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://b1ktftfsqadcu" path="res://scripts/placement_area.gd" id="5_iywne"]
-[ext_resource type="AudioStream" uid="uid://bv77gswhm1het" path="res://Audio/Music/Walking With My Eyes Shut Cello.wav" id="6_0tnpc"]
-[ext_resource type="AudioStream" uid="uid://ubpwjf28d0br" path="res://Audio/Music/Walking With My Eyes Shut Synths.wav" id="7_vtaks"]
-[ext_resource type="AudioStream" uid="uid://cq86swx0py0na" path="res://Audio/Music/Walking With My Eyes Shut Melody.wav" id="8_kvpfn"]
-[ext_resource type="AudioStream" uid="uid://2aoislu1fr8b" path="res://Audio/Music/Walking With My Eyes Shut Percussion.wav" id="9_dinhu"]
-[ext_resource type="Texture2D" uid="uid://blnnndb6fd4qq" path="res://images/LDGJ - TubeTile w. Registration.png" id="10_ca42v"]
-[ext_resource type="Texture2D" uid="uid://d0c21rx7s5mpu" path="res://images/LDGJ - Palm w. Registration.png" id="11_rysoc"]
-[ext_resource type="Texture2D" uid="uid://7an2tjde3q4d" path="res://images/LDGJ - Index.png" id="12_ssvqc"]
-[ext_resource type="Texture2D" uid="uid://c8ud8m0ntgt86" path="res://images/LDGJ - Middle.png" id="13_264po"]
-[ext_resource type="Texture2D" uid="uid://c2oc2y0t7bv8o" path="res://images/LDGJ - Ring.png" id="14_1kice"]
-[ext_resource type="Texture2D" uid="uid://ddvnfg0v6abe7" path="res://images/LDGJ - Pinky.png" id="15_5newe"]
-[ext_resource type="Texture2D" uid="uid://dw0nw0pb1cfvo" path="res://images/LDGJ - Thumb.png" id="16_37s47"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
-size = Vector2(14.4694, 5.34754)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
-radius = 22.55
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0tnpc"]
-radius = 20.0
+[ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="1_e7anx"]
+[ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_ur00s"]
+[ext_resource type="PackedScene" uid="uid://dch5a6eejecp0" path="res://scenes/camera_2d.tscn" id="2_ur00s"]
+[ext_resource type="PackedScene" uid="uid://kq4dogevv8kq" path="res://scenes/placement_area.tscn" id="3_wndkh"]
+[ext_resource type="PackedScene" uid="uid://caa8o6eykja87" path="res://scenes/music.tscn" id="4_ly3hx"]
+[ext_resource type="TileSet" uid="uid://brnko2s7s3ecn" path="res://images/kitty_tileset.tres" id="5_4n8tn"]
+[ext_resource type="Texture2D" uid="uid://b0o68s425cyn3" path="res://images/kitty.png" id="6_wkb0e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(70, 35)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iywne"]
-size = Vector2(70, 35)
-
 [node name="Game" type="Node"]
+script = ExtResource("1_ur00s")
 
-[node name="Hand" type="RigidBody2D" parent="."]
-position = Vector2(83, 12)
-collision_layer = 2
-mass = 10.0
-script = ExtResource("1_yqjtg")
-move_speed = 10.0
-max_speed = 200.0
-hit_impulse = 10000.0
-hit_cooldown = 1.0
-rotate_speed = 10.0
-rotate_linear_speed_threshold = 30.0
-pick_up_mask = 4
+[node name="Hand" parent="." instance=ExtResource("1_e7anx")]
 
-[node name="Ldgj-TubeTileW_Registration2" type="Sprite2D" parent="Hand"]
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("10_ca42v")
-
-[node name="Ldgj-PalmW_Registration" type="Sprite2D" parent="Hand"]
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("11_rysoc")
-
-[node name="Ldgj-Index" type="Sprite2D" parent="Hand"]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("12_ssvqc")
-
-[node name="Ldgj-Middle" type="Sprite2D" parent="Hand"]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("13_264po")
-
-[node name="Ldgj-Ring" type="Sprite2D" parent="Hand"]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("14_1kice")
-
-[node name="Ldgj-Pinky" type="Sprite2D" parent="Hand"]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("15_5newe")
-
-[node name="Thumb" type="RigidBody2D" parent="Hand"]
-position = Vector2(-6.6395, -11.1337)
-rotation = -1.37406
-collision_layer = 2
-collision_mask = 0
-
-[node name="Ldgj-Thumb" type="Sprite2D" parent="Hand/Thumb"]
-z_index = -1
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("16_37s47")
-offset = Vector2(-192.308, 173.077)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Hand/Thumb"]
-node_a = NodePath("..")
-node_b = NodePath("../..")
-bias = 0.9
-angular_limit_enabled = true
-angular_limit_lower = 0.600393
-angular_limit_upper = 1.53938
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/Thumb"]
-position = Vector2(6.14771, 3.95999)
-rotation = 0.658539
-shape = SubResource("RectangleShape2D_ca42v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
-shape = SubResource("CircleShape2D_iywne")
-
-[node name="PickUpArea" type="Area2D" parent="Hand"]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand/PickUpArea"]
-position = Vector2(6.39167, -1.63508)
-shape = SubResource("CircleShape2D_0tnpc")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
-position = Vector2(51, 283)
-process_callback = 0
-script = ExtResource("3_lbhrr")
+[node name="Camera2D" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("2_ur00s")]
 follow = NodePath("../Hand")
-follow_speed = 2.0
-follow_max_speed = 1e+11
-move_deadzone = 100.0
+
+[node name="PlacementArea" parent="." instance=ExtResource("3_wndkh")]
+
+[node name="Music" parent="." instance=ExtResource("4_ly3hx")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(0.1, 0.1)
-tile_map_data = PackedByteArray("AAD6/xQAAQAAAAAAAAD6/xUAAQAAAAAAAAD6/xYAAQAAAAAAAAD6/xcAAQAAAAAAAAD6/xgAAQAAAAAAAAD6/xkAAQAAAAAAAAD6/xoAAQAAAAAAAAD6/xsAAQAAAAAAAAD5/xsAAQAAAAAAAAD4/xsAAQAAAAAAAAD3/xsAAQAAAAAAAAD3/xwAAQAAAAAAAAD2/xwAAQAAAAAAAAD1/xwAAQAAAAAAAAD1/x0AAQAAAAAAAAD0/x4AAQAAAAAAAAD0/x8AAQAAAAAAAADz/yAAAQAAAAAAAADz/yEAAQAAAAAAAADy/yIAAQAAAAAAAADx/yMAAQAAAAAAAADx/yQAAQAAAAAAAADw/yUAAQAAAAAAAADv/yYAAQAAAAAAAADv/ycAAQAAAAAAAADu/ygAAQAAAAAAAADu/ykAAQAAAAAAAADt/yoAAQAAAAAAAADt/ysAAQAAAAAAAADs/ywAAQAAAAAAAADs/y0AAQAAAAAAAADs/y4AAQAAAAAAAADs/y8AAQAAAAAAAADs/zAAAQAAAAAAAADt/zEAAQAAAAAAAADt/zIAAQAAAAAAAADu/zIAAQAAAAAAAADv/zIAAQAAAAAAAADw/zIAAQAAAAAAAADx/zMAAQAAAAAAAADy/zMAAQAAAAAAAADz/zIAAQAAAAAAAAD0/zIAAQAAAAAAAAD1/zIAAQAAAAAAAAD2/zEAAQAAAAAAAAD3/zEAAQAAAAAAAAD4/zEAAQAAAAAAAAD5/zAAAQAAAAAAAAD6/zAAAQAAAAAAAAD7/zAAAQAAAAAAAAD8/zAAAQAAAAAAAAD9/y8AAQAAAAAAAAD+/y8AAQAAAAAAAAD//y4AAQAAAAAAAAAAAC0AAQAAAAAAAAAAACwAAQAAAAAAAAAAACsAAQAAAAAAAAAAACoAAQAAAAAAAAAAACkAAQAAAAAAAAAAACgAAQAAAAAAAAAAACcAAQAAAAAAAAAAACYAAQAAAAAAAAAAACUAAQAAAAAAAAAAACQAAQAAAAAAAAAAACMAAQAAAAAAAAAAACIAAQAAAAAAAAABACcAAQAAAAAAAAABACgAAQAAAAAAAAACACkAAQAAAAAAAAACACoAAQAAAAAAAAADACsAAQAAAAAAAAADACwAAQAAAAAAAAADAC0AAQAAAAAAAAAEAC0AAQAAAAAAAAAFAC0AAQAAAAAAAAAGAC0AAQAAAAAAAAAHAC0AAQAAAAAAAAAIAC0AAQAAAAAAAAAJAC0AAQAAAAAAAAAKAC0AAQAAAAAAAAALAC0AAQAAAAAAAAAMAC0AAQAAAAAAAAANAC0AAQAAAAAAAAAOAC0AAQAAAAAAAAAPAC0AAQAAAAAAAAAQAC0AAQAAAAAAAAARAC0AAQAAAAAAAAASAC0AAQAAAAAAAAATAC0AAQAAAAAAAAAUAC0AAQAAAAAAAAAUACwAAQAAAAAAAAAVACwAAQAAAAAAAAAVACsAAQAAAAAAAAAWACoAAQAAAAAAAAAXACkAAQAAAAAAAAAYACgAAQAAAAAAAAAYACcAAQAAAAAAAAAYACYAAQAAAAAAAAAYACUAAQAAAAAAAAAYACQAAQAAAAAAAAAXACMAAQAAAAAAAAAWACIAAQAAAAAAAAAVACEAAQAAAAAAAAAUACEAAQAAAAAAAAAUACAAAQAAAAAAAAATAB8AAQAAAAAAAAASAB8AAQAAAAAAAAASAB4AAQAAAAAAAAARAB4AAQAAAAAAAAARAB0AAQAAAAAAAAAQAB0AAQAAAAAAAAAQABwAAQAAAAAAAAAPABwAAQAAAAAAAAAOABwAAQAAAAAAAAANABwAAQAAAAAAAAAMABwAAQAAAAAAAAALABwAAQAAAAAAAAAKABwAAQAAAAAAAAAJABwAAQAAAAAAAAAJABsAAQAAAAAAAAAJABoAAQAAAAAAAAAJABkAAQAAAAAAAAAJABgAAQAAAAAAAAAJABcAAQAAAAAAAAAJABYAAQAAAAAAAAAJABUAAQAAAAAAAAD5/xMAAQAAAAAAAAD5/xIAAQAAAAAAAAD4/xEAAQAAAAAAAAD3/xAAAQAAAAAAAAD2/xAAAQAAAAAAAAD1/w8AAQAAAAAAAAD1/w4AAQAAAAAAAAD0/w0AAQAAAAAAAAD0/wwAAQAAAAAAAAD0/wsAAQAAAAAAAADz/woAAQAAAAAAAADy/wkAAQAAAAAAAADx/wgAAQAAAAAAAADw/wcAAQAAAAAAAADv/wYAAQAAAAAAAADu/wUAAQAAAAAAAADt/wQAAQAAAAAAAADs/wQAAQAAAAAAAADr/wMAAQAAAAAAAADq/wMAAQAAAAAAAADp/wIAAQAAAAAAAADo/wIAAQAAAAAAAAAJABQAAQAAAAAAAAAJABMAAQAAAAAAAAAKABIAAQAAAAAAAAAKABEAAQAAAAAAAAALABAAAQAAAAAAAAAMAA8AAQAAAAAAAAANAA4AAQAAAAAAAAAOAA0AAQAAAAAAAAAOAAwAAQAAAAAAAAAPAAsAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAkAAQAAAAAAAAASAAgAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAYAAQAAAAAAAAAVAAUAAQAAAAAAAAAVAAQAAQAAAAAAAAAWAAQAAQAAAAAAAAAWAAMAAQAAAAAAAAAXAAMAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAEAAQAAAAAAAAA=")
-tile_set = ExtResource("3_lnu2h")
+tile_map_data = PackedByteArray("AAD6/xgAAQAAAAAAAAD6/xkAAQAAAAAAAAD6/xoAAQAAAAAAAAD6/xsAAQAAAAAAAAD5/xsAAQAAAAAAAAD4/xsAAQAAAAAAAAD3/xsAAQAAAAAAAAD3/xwAAQAAAAAAAAD2/xwAAQAAAAAAAAD1/xwAAQAAAAAAAAD1/x0AAQAAAAAAAAD0/x4AAQAAAAAAAAD0/x8AAQAAAAAAAADz/yAAAQAAAAAAAADz/yEAAQAAAAAAAADy/yIAAQAAAAAAAADx/yMAAQAAAAAAAADx/yQAAQAAAAAAAADw/yUAAQAAAAAAAADv/yYAAQAAAAAAAADv/ycAAQAAAAAAAADu/ygAAQAAAAAAAADu/ykAAQAAAAAAAADt/yoAAQAAAAAAAADt/ysAAQAAAAAAAADs/ywAAQAAAAAAAADs/y0AAQAAAAAAAADs/y4AAQAAAAAAAADs/y8AAQAAAAAAAADs/zAAAQAAAAAAAADt/zEAAQAAAAAAAADt/zIAAQAAAAAAAADu/zIAAQAAAAAAAADv/zIAAQAAAAAAAADw/zIAAQAAAAAAAADx/zMAAQAAAAAAAADy/zMAAQAAAAAAAADz/zIAAQAAAAAAAAD0/zIAAQAAAAAAAAD1/zIAAQAAAAAAAAD2/zEAAQAAAAAAAAD3/zEAAQAAAAAAAAD4/zEAAQAAAAAAAAD5/zAAAQAAAAAAAAD6/zAAAQAAAAAAAAD7/zAAAQAAAAAAAAD8/zAAAQAAAAAAAAD9/y8AAQAAAAAAAAD+/y8AAQAAAAAAAAD//y4AAQAAAAAAAAAAAC0AAQAAAAAAAAAAACwAAQAAAAAAAAAAACsAAQAAAAAAAAAAACoAAQAAAAAAAAAAACkAAQAAAAAAAAAAACgAAQAAAAAAAAAAACcAAQAAAAAAAAAAACYAAQAAAAAAAAAAACUAAQAAAAAAAAAAACQAAQAAAAAAAAAAACMAAQAAAAAAAAAAACIAAQAAAAAAAAABACcAAQAAAAAAAAABACgAAQAAAAAAAAACACkAAQAAAAAAAAACACoAAQAAAAAAAAADACsAAQAAAAAAAAADACwAAQAAAAAAAAADAC0AAQAAAAAAAAAEAC0AAQAAAAAAAAAFAC0AAQAAAAAAAAAGAC0AAQAAAAAAAAAHAC0AAQAAAAAAAAAIAC0AAQAAAAAAAAAJAC0AAQAAAAAAAAAKAC0AAQAAAAAAAAALAC0AAQAAAAAAAAAMAC0AAQAAAAAAAAANAC0AAQAAAAAAAAAOAC0AAQAAAAAAAAAPAC0AAQAAAAAAAAAQAC0AAQAAAAAAAAARAC0AAQAAAAAAAAASAC0AAQAAAAAAAAATAC0AAQAAAAAAAAAUAC0AAQAAAAAAAAAUACwAAQAAAAAAAAAVACwAAQAAAAAAAAAVACsAAQAAAAAAAAAWACoAAQAAAAAAAAAXACkAAQAAAAAAAAAYACgAAQAAAAAAAAAYACcAAQAAAAAAAAAYACYAAQAAAAAAAAAYACUAAQAAAAAAAAAYACQAAQAAAAAAAAAXACMAAQAAAAAAAAAWACIAAQAAAAAAAAAVACEAAQAAAAAAAAAUACEAAQAAAAAAAAAUACAAAQAAAAAAAAATAB8AAQAAAAAAAAASAB8AAQAAAAAAAAASAB4AAQAAAAAAAAARAB4AAQAAAAAAAAARAB0AAQAAAAAAAAAQAB0AAQAAAAAAAAAQABwAAQAAAAAAAAAPABwAAQAAAAAAAAAOABwAAQAAAAAAAAANABwAAQAAAAAAAAAMABwAAQAAAAAAAAALABwAAQAAAAAAAAAKABwAAQAAAAAAAAAJABwAAQAAAAAAAAAJABsAAQAAAAAAAAAJABoAAQAAAAAAAAD0/wsAAQAAAAAAAADz/woAAQAAAAAAAADy/wkAAQAAAAAAAADx/wgAAQAAAAAAAADw/wcAAQAAAAAAAADv/wYAAQAAAAAAAADu/wUAAQAAAAAAAADt/wQAAQAAAAAAAADs/wQAAQAAAAAAAADr/wMAAQAAAAAAAADq/wMAAQAAAAAAAADp/wIAAQAAAAAAAADo/wIAAQAAAAAAAAAPAAsAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAkAAQAAAAAAAAASAAgAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAYAAQAAAAAAAAAVAAUAAQAAAAAAAAAVAAQAAQAAAAAAAAAWAAQAAQAAAAAAAAAWAAMAAQAAAAAAAAAXAAMAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAEAAQAAAAAAAAAJABgAAQAAAAAAAAAJABkAAQAAAAAAAAD0/wwAAQAAAAAAAAD0/w0AAQAAAAAAAAD1/w4AAQAAAAAAAAD1/w8AAQAAAAAAAAD2/xAAAQAAAAAAAAD3/xAAAQAAAAAAAAD4/xEAAQAAAAAAAAD5/xIAAQAAAAAAAAD5/xMAAQAAAAAAAAD6/xQAAQAAAAAAAAD6/xUAAQAAAAAAAAD6/xYAAQAAAAAAAAD6/xcAAQAAAAAAAAAJABMAAQAAAAAAAAAJABQAAQAAAAAAAAAJABUAAQAAAAAAAAAJABYAAQAAAAAAAAAJABcAAQAAAAAAAAAKABEAAQAAAAAAAAAKABIAAQAAAAAAAAALABAAAQAAAAAAAAAMAA8AAQAAAAAAAAANAA4AAQAAAAAAAAAOAAwAAQAAAAAAAAAOAA0AAQAAAAAAAAA=")
+tile_set = ExtResource("5_4n8tn")
 
 [node name="Kitty" type="Node" parent="."]
 
@@ -148,7 +42,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D"]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -160,7 +54,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D2"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -172,7 +66,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D3"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -184,7 +78,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D4"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -196,7 +90,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D5"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D6" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -208,7 +102,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D6"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D7" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -220,7 +114,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D7"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D8" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -232,7 +126,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D8"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D9" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -244,7 +138,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D9"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D10" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -256,7 +150,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D10"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D11" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -268,7 +162,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D11"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D12" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -280,7 +174,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D12"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D13" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -292,7 +186,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D13"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D14" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -304,7 +198,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D14"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D15" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -316,7 +210,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D15"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D16" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -328,7 +222,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D16"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D17" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -340,7 +234,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D17"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D18" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -352,7 +246,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D18"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D19" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -364,7 +258,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D19"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D20" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -376,7 +270,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D20"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D21" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -388,7 +282,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D21"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D22" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -400,7 +294,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D22"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D23" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -412,7 +306,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D23"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D24" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -424,7 +318,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D24"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D25" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -436,7 +330,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D25"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D26" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -448,7 +342,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D26"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D27" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -460,7 +354,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D27"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D28" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -472,7 +366,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D28"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D29" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -484,7 +378,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D29"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D30" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -496,7 +390,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D30"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D31" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -508,7 +402,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D31"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D32" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -520,7 +414,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D32"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D33" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -532,7 +426,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D33"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D34" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -544,7 +438,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D34"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D35" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -556,7 +450,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D35"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D36" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -568,7 +462,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D36"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D37" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -580,7 +474,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D37"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D38" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -592,7 +486,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D38"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D39" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -604,7 +498,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D39"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D40" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -616,7 +510,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D40"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D41" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -628,7 +522,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D41"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D42" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -640,7 +534,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D42"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D43" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -652,7 +546,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D43"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D44" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -664,7 +558,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D44"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D45" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -676,7 +570,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D45"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D46" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -688,7 +582,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D46"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D47" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -700,7 +594,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D47"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D48" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -712,7 +606,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D48"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D49" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -724,7 +618,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D49"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D50" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -736,7 +630,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D50"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D51" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -748,7 +642,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D51"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D52" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -760,7 +654,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D52"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D53" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -772,7 +666,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D53"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D54" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -784,7 +678,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D54"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D55" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -796,7 +690,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D55"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D56" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -808,7 +702,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D56"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D57" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -820,7 +714,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D57"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D58" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -832,7 +726,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D58"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D59" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -844,7 +738,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D59"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D60" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -856,7 +750,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D60"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D61" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -868,7 +762,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D61"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D62" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -880,7 +774,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D62"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D63" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -892,7 +786,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D63"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D64" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -904,7 +798,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D64"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D65" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -916,7 +810,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D65"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D66" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -928,7 +822,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D66"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D67" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -940,7 +834,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D67"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D68" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -952,7 +846,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D68"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D69" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -964,7 +858,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D69"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D70" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -976,7 +870,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D70"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D71" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -988,7 +882,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D71"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D72" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1000,7 +894,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D72"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D73" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1012,7 +906,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D73"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D74" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1024,7 +918,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D74"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D75" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1036,7 +930,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D75"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D76" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1048,7 +942,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D76"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D77" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1060,7 +954,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D77"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D78" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1072,7 +966,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D78"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D79" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1084,7 +978,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D79"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D80" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1096,7 +990,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D80"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D81" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1108,7 +1002,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D81"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D82" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1120,7 +1014,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D82"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D83" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1132,7 +1026,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D83"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D84" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1144,7 +1038,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D84"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D85" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1156,7 +1050,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D85"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D86" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1168,7 +1062,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D86"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D87" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1180,7 +1074,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D87"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D88" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1192,7 +1086,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D88"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D89" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1204,7 +1098,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D89"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D90" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1216,7 +1110,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D90"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D91" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1228,7 +1122,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D91"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D92" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1240,7 +1134,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D92"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D93" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1252,7 +1146,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D93"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D94" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1264,7 +1158,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D94"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D95" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1276,7 +1170,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D95"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D96" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1288,7 +1182,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D96"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D97" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1300,7 +1194,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D97"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D98" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1312,7 +1206,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D98"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D99" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1324,7 +1218,7 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D99"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
+texture = ExtResource("6_wkb0e")
 
 [node name="RigidBody2D100" type="RigidBody2D" parent="Kitty"]
 position = Vector2(0, -132)
@@ -1336,40 +1230,4 @@ shape = SubResource("CircleShape2D_yqjtg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kitty/RigidBody2D100"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_uwrxv")
-
-[node name="PlacementArea" type="Area2D" parent="."]
-collision_mask = 4
-script = ExtResource("5_iywne")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlacementArea"]
-position = Vector2(-1262, -324)
-scale = Vector2(21.08, 21.08)
-shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="Sprite2D" type="Sprite2D" parent="PlacementArea/CollisionShape2D"]
-texture = SubResource("PlaceholderTexture2D_iywne")
-
-[node name="AudioStreamPlayerCello" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_0tnpc")
-autoplay = true
-bus = &"Cello"
-
-[node name="AudioStreamPlayerSynth" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_vtaks")
-autoplay = true
-bus = &"Synth"
-
-[node name="AudioStreamPlayerMelody" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_kvpfn")
-autoplay = true
-bus = &"Melody"
-
-[node name="AudioStreamPlayerPercussion" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_dinhu")
-autoplay = true
-bus = &"Percussion"
-
-[connection signal="body_entered" from="Hand/PickUpArea" to="Hand" method="_on_pick_up_area_body_entered"]
-[connection signal="body_exited" from="Hand/PickUpArea" to="Hand" method="_on_pick_up_area_body_exited"]
-[connection signal="body_entered" from="PlacementArea" to="PlacementArea" method="_on_body_entered"]
+texture = ExtResource("6_wkb0e")
