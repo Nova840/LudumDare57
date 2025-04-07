@@ -27,6 +27,8 @@ script = ExtResource("1_ur00s")
 follow = NodePath("../Hand")
 
 [node name="PlacementArea" parent="." instance=ExtResource("3_wndkh")]
+position = Vector2(-877.129, -186.34)
+scale = Vector2(-12.0516, 13.3169)
 
 [node name="Music" parent="." instance=ExtResource("4_ly3hx")]
 

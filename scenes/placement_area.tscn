@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://kq4dogevv8kq"]
+[gd_scene load_steps=3 format=3 uid="uid://kq4dogevv8kq"]
 
 [ext_resource type="Script" uid="uid://b1ktftfsqadcu" path="res://scripts/placement_area.gd" id="1_80uw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(70, 35)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iywne"]
 size = Vector2(70, 35)
 
 [node name="PlacementArea" type="Area2D"]
@@ -13,12 +10,7 @@ collision_mask = 4
 script = ExtResource("1_80uw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1262, -324)
-scale = Vector2(21.08, 21.08)
 shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-texture = SubResource("PlaceholderTexture2D_iywne")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
