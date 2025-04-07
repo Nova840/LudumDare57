@@ -9,6 +9,7 @@ size = Vector2(33.424, 20.8171)
 size = Vector2(24.4614, 1.65432)
 
 [node name="PushPin" type="RigidBody2D"]
+z_index = 95
 collision_layer = 4
 collision_mask = 7
 

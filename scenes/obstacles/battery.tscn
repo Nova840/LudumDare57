@@ -6,6 +6,7 @@
 size = Vector2(28.2375, 50.7593)
 
 [node name="Battery" type="RigidBody2D"]
+z_index = 95
 collision_layer = 4
 collision_mask = 7
 metadata/battery = true
