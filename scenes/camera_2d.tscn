@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dch5a6eejecp0"]
+
+[ext_resource type="Script" uid="uid://r8jhpqkecrrv" path="res://scripts/camera.gd" id="1_qnfst"]
+
+[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("follow")]
+process_callback = 0
+script = ExtResource("1_qnfst")
+follow = NodePath("")
+follow_speed = 2.0
+follow_max_speed = 1e+11
+move_deadzone = 100.0

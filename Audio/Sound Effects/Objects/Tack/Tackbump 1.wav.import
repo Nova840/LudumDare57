@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6ffckdw6k0h5"
+path="res://.godot/imported/Tackbump 1.wav-3e1502e166d30f10af2eacc4db911538.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Objects/Tack/Tackbump 1.wav"
+dest_files=["res://.godot/imported/Tackbump 1.wav-3e1502e166d30f10af2eacc4db911538.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

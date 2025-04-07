@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://caa8o6eykja87"]
+
+[ext_resource type="AudioStream" uid="uid://bv77gswhm1het" path="res://Audio/Music/Walking With My Eyes Shut Cello.wav" id="1_ejojg"]
+[ext_resource type="AudioStream" uid="uid://ubpwjf28d0br" path="res://Audio/Music/Walking With My Eyes Shut Synths.wav" id="2_wia2r"]
+[ext_resource type="AudioStream" uid="uid://cq86swx0py0na" path="res://Audio/Music/Walking With My Eyes Shut Melody.wav" id="3_mobtd"]
+[ext_resource type="AudioStream" uid="uid://2aoislu1fr8b" path="res://Audio/Music/Walking With My Eyes Shut Percussion.wav" id="4_keplp"]
+
+[node name="Music" type="Node"]
+
+[node name="AudioStreamPlayerCello" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ejojg")
+autoplay = true
+bus = &"Cello"
+
+[node name="AudioStreamPlayerSynth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wia2r")
+autoplay = true
+bus = &"Synth"
+
+[node name="AudioStreamPlayerMelody" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mobtd")
+autoplay = true
+bus = &"Melody"
+
+[node name="AudioStreamPlayerPercussion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_keplp")
+autoplay = true
+bus = &"Percussion"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4jbb8gno3qm2"
+path="res://.godot/imported/PaperCollide 2.wav-2ab62d6ba8a49c0e22a55a1eaa0fbe3a.sample"
+
+[deps]
+
+source_file="res://Audio/Sound Effects/Objects/Paper/PaperCollide 2.wav"
+dest_files=["res://.godot/imported/PaperCollide 2.wav-2ab62d6ba8a49c0e22a55a1eaa0fbe3a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
