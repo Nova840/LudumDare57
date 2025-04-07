@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=13 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
 [ext_resource type="Texture2D" uid="uid://4l326gqwc0pp" path="res://images/LDGJ - TubeTile Final.png" id="2_ligq1"]
+[ext_resource type="Texture2D" uid="uid://dfsmvndlco5tc" path="res://images/LDGJ- Squaretube.png" id="2_v24qn"]
 [ext_resource type="Texture2D" uid="uid://carmc43e3yw7f" path="res://images/LDGJ - Palm Final.png" id="2_y1wyv"]
 [ext_resource type="Texture2D" uid="uid://7an2tjde3q4d" path="res://images/LDGJ - Index.png" id="4_bfalx"]
 [ext_resource type="Texture2D" uid="uid://c8ud8m0ntgt86" path="res://images/LDGJ - Middle.png" id="5_ysndn"]
@@ -43,7 +44,8 @@ position = Vector2(-23.4524, 3.57371)
 top_level = true
 z_index = 90
 width = 16.0
-default_color = Color(0.831449, 0.635554, 0.478248, 1)
+texture = ExtResource("2_v24qn")
+texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
