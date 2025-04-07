@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=15 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="1_e7anx"]
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_ur00s"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bovwaf63802si" path="res://scenes/obstacles/knife.tscn" id="7_wndkh"]
 [ext_resource type="PackedScene" uid="uid://48qorbbwh4k" path="res://scenes/obstacles/push_pin.tscn" id="9_ly3hx"]
 [ext_resource type="PackedScene" uid="uid://1t5v6uahan4y" path="res://scenes/obstacles/glue.tscn" id="10_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://76oof5hkjjva" path="res://scenes/obstacles/paper_clip.tscn" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://brdg7rsbha6l7" path="res://scenes/obstacles/sticky_note.tscn" id="12_paa45"]
+[ext_resource type="PackedScene" uid="uid://dk55x21ca3uat" path="res://scenes/obstacles/rubber_band_ball.tscn" id="13_axl34"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqjtg"]
 radius = 22.55
@@ -1243,3 +1246,12 @@ position = Vector2(107.428, -435.25)
 
 [node name="PushPin2" parent="." instance=ExtResource("10_4n8tn")]
 position = Vector2(284.361, -131.091)
+
+[node name="PaperClip" parent="." instance=ExtResource("11_wkb0e")]
+position = Vector2(273.713, -264.191)
+
+[node name="StickyNote" parent="." instance=ExtResource("12_paa45")]
+position = Vector2(207.163, -27.2729)
+
+[node name="RubberBandBall" parent="." instance=ExtResource("13_axl34")]
+position = Vector2(221.804, -324.086)

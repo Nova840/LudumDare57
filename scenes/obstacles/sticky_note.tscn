@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://brdg7rsbha6l7"]
+
+[ext_resource type="Script" uid="uid://lnkbx7xqd5ga" path="res://scripts/sticky_note.gd" id="1_a7xat"]
+[ext_resource type="Texture2D" uid="uid://dk8ve2rh2c2pp" path="res://images/LDGJ- Sticky Note.png" id="1_he06l"]
+[ext_resource type="Texture2D" uid="uid://y1i3u1wu41e8" path="res://images/LDGJ- Sticky Note Kitty.png" id="2_kirfa"]
+[ext_resource type="Texture2D" uid="uid://dmoj0s26hd7fy" path="res://images/LDGJ- Sticky Note Bruh.png" id="2_updku"]
+[ext_resource type="Texture2D" uid="uid://b6872k6px8k4c" path="res://images/LDGJ- Sticky Note Meta.png" id="3_3d6os"]
+[ext_resource type="Texture2D" uid="uid://bnii64v6s58db" path="res://images/LDGJ- Sticky Note ToDo.png" id="4_ai8op"]
+[ext_resource type="Texture2D" uid="uid://bfq5xfwnh7q1n" path="res://images/LDGJ- Sticky Note Shopping.png" id="6_pvjm0"]
+[ext_resource type="Texture2D" uid="uid://c4d0kl3quv2e1" path="res://images/LDGJ- Sticky Note LoveLetter.png" id="7_jwtyk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
+size = Vector2(35.8832, 36.6132)
+
+[node name="StickyNote" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_a7xat")
+base_colors = Array[Color]([Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 0, 1), Color(0, 1, 1, 1)])
+overlay_textures = Array[Texture2D]([ExtResource("2_updku"), ExtResource("3_3d6os"), ExtResource("4_ai8op"), ExtResource("2_kirfa"), ExtResource("6_pvjm0"), ExtResource("7_jwtyk")])
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.308117, -0.382222)
+rotation = 0.96312
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ly3hx")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_he06l")
+
+[node name="Overlay" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)

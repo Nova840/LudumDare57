@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk55x21ca3uat"]
+
+[ext_resource type="Texture2D" uid="uid://dfm03soacvw5" path="res://images/LDGJ- RubberBandBall.png" id="1_qfgr6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qfgr6"]
+bounce = 0.95
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfgr6"]
+radius = 21.0
+
+[node name="RubberBandBall" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_qfgr6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.372231, -1.87148)
+rotation = 0.726697
+shape = SubResource("CircleShape2D_qfgr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_qfgr6")
