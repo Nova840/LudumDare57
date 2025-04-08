@@ -16,4 +16,5 @@ func _process(delta: float) -> void:
 
 func _set_text() -> void:
 	var game: Game = get_tree().current_scene as Game
-	text = original_text.replace("%s", str(ceili(game.time_left() / 1000)))
+	if not game.game_won:
+		text = original_text.replace("%s", str(ceili(game.time_left() / 1000)))

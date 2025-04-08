@@ -16,4 +16,5 @@ func _process(delta: float) -> void:
 
 func _set_text() -> void:
 	var game: Game = get_tree().current_scene as Game
-	text = original_text.replace("%s", str(game.batteries_to_win - game.batteries_retrieved))
+	var batteries_left: int = game.batteries_to_win - game.batteries_retrieved if not game.game_won else 0
+	text = original_text.replace("%s", str(batteries_left))

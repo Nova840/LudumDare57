@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjcltpqxrowjf"]
+
+[ext_resource type="Texture2D" uid="uid://drtc67niae558" path="res://images/LDGJ Failure.png" id="1_ps30d"]
+
+[node name="LoseImage" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ps30d")
+expand_mode = 1
+stretch_mode = 5

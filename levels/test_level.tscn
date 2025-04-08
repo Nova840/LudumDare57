@@ -1,11 +1,13 @@
-[gd_scene load_steps=26 format=4 uid="uid://hwr3qacbcdl5"]
+[gd_scene load_steps=28 format=4 uid="uid://hwr3qacbcdl5"]
 
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="1_e7anx"]
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_ur00s"]
 [ext_resource type="Texture2D" uid="uid://qhc2gl0p2yxu" path="res://images/LDGJ- Battery.png" id="2_0vv12"]
 [ext_resource type="PackedScene" uid="uid://dch5a6eejecp0" path="res://scenes/camera.tscn" id="2_ur00s"]
+[ext_resource type="PackedScene" uid="uid://batce4cw5h748" path="res://scenes/win_image.tscn" id="2_vr6yy"]
 [ext_resource type="Script" uid="uid://du3jywc0sbrek" path="res://scripts/instruction_label.gd" id="2_wjuib"]
 [ext_resource type="Script" uid="uid://carb71b6fx06x" path="res://scripts/time_label.gd" id="3_o5yuq"]
+[ext_resource type="PackedScene" uid="uid://bjcltpqxrowjf" path="res://scenes/lose_image.tscn" id="3_ra35m"]
 [ext_resource type="PackedScene" uid="uid://kq4dogevv8kq" path="res://scenes/placement_area.tscn" id="3_wndkh"]
 [ext_resource type="PackedScene" uid="uid://caa8o6eykja87" path="res://scenes/music.tscn" id="4_ly3hx"]
 [ext_resource type="TileSet" uid="uid://c0ol7btu8wjwl" path="res://images/drawer_tileset.tres" id="6_8hjdj"]
@@ -37,6 +39,8 @@ radius = 22.55
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ur00s")
+win_image = ExtResource("2_vr6yy")
+lose_image = ExtResource("3_ra35m")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -69,15 +73,16 @@ script = ExtResource("3_o5yuq")
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("2_ur00s")]
 follow = NodePath("../Hand")
 
-[node name="PlacementArea" parent="." instance=ExtResource("3_wndkh")]
-position = Vector2(147.036, -213.427)
-scale = Vector2(-25.0563, 19.0852)
-
 [node name="Music" parent="." instance=ExtResource("4_ly3hx")]
 
 [node name="Ldgj-DrawerBackground" type="Sprite2D" parent="."]
 position = Vector2(67.09, -719.63)
 texture = ExtResource("9_atrxo")
+
+[node name="PlacementArea" parent="." instance=ExtResource("3_wndkh")]
+position = Vector2(147.036, -213.427)
+rotation = -3.14159
+scale = Vector2(25.0563, -19.0852)
 
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1.46411, 53.24)
@@ -1413,4 +1418,4 @@ position = Vector2(207.163, -27.2729)
 position = Vector2(221.804, -324.086)
 
 [node name="Battery" parent="." instance=ExtResource("14_8hjdj")]
-position = Vector2(385.517, -214.944)
+position = Vector2(385.517, 531.025)

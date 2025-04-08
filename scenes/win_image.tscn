@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://batce4cw5h748"]
+
+[ext_resource type="Texture2D" uid="uid://bpi8ou4ffm3av" path="res://images/LDGJ- Got It!.png" id="1_e7vi7"]
+
+[node name="WinImage" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e7vi7")
+expand_mode = 1
+stretch_mode = 5
