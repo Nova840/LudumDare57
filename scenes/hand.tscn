@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=19 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
 [ext_resource type="PackedScene" uid="uid://gppia77rttt6" path="res://scenes/ouch.tscn" id="2_bfalx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cd2jg0ji2jfbl" path="res://images/LDGJ - MiddleV2.png" id="8_v24qn"]
 [ext_resource type="Texture2D" uid="uid://i3sxujtvy2l3" path="res://images/LDGJ - IndexV2.png" id="8_y1wyv"]
 [ext_resource type="Texture2D" uid="uid://c2uk0xlfo7vah" path="res://images/LDGJ - ThumbV2.png" id="9_y1wyv"]
+[ext_resource type="AudioStream" uid="uid://42s7ya0pqdv8" path="res://Audio/Sound Effects/Hand/Arm Stretch(repeat at 40s).wav" id="11_bfalx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
 size = Vector2(15.567, 5.38278)
@@ -51,6 +52,7 @@ pick_up_mask = 4
 create_arm_point_distance = 5.0
 ouch_scene = ExtResource("2_bfalx")
 ouch_lifetime = 1.0
+min_volume_stretch_db = -20.0
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)
@@ -215,6 +217,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2(5.7216, -1.63508)
 shape = SubResource("CircleShape2D_0tnpc")
+
+[node name="Stretch1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bfalx")
+
+[node name="Stretch2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bfalx")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
