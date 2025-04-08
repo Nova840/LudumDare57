@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=20 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
 [ext_resource type="PackedScene" uid="uid://gppia77rttt6" path="res://scenes/ouch.tscn" id="2_bfalx"]
 [ext_resource type="Texture2D" uid="uid://4l326gqwc0pp" path="res://images/LDGJ - TubeTile Final.png" id="2_ligq1"]
 [ext_resource type="Texture2D" uid="uid://dfsmvndlco5tc" path="res://images/LDGJ- Squaretube.png" id="2_v24qn"]
 [ext_resource type="Texture2D" uid="uid://carmc43e3yw7f" path="res://images/LDGJ - Palm Final.png" id="2_y1wyv"]
+[ext_resource type="PackedScene" uid="uid://3plv8h2g0c4o" path="res://scenes/grab_sound.tscn" id="3_ysndn"]
 [ext_resource type="Texture2D" uid="uid://cu3ftj54w4xno" path="res://images/LDGJ - PinkyV2.png" id="6_y1wyv"]
 [ext_resource type="Texture2D" uid="uid://5dncklartpx7" path="res://images/LDGJ - RingV2.png" id="7_y1wyv"]
 [ext_resource type="Texture2D" uid="uid://cd2jg0ji2jfbl" path="res://images/LDGJ - MiddleV2.png" id="8_v24qn"]
@@ -53,6 +54,7 @@ create_arm_point_distance = 5.0
 ouch_scene = ExtResource("2_bfalx")
 ouch_lifetime = 1.0
 min_volume_stretch_db = -20.0
+grab_sound_scene = ExtResource("3_ysndn")
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)

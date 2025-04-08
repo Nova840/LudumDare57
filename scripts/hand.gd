@@ -15,6 +15,7 @@ class_name Hand
 @export var ouch_scene: PackedScene
 @export var ouch_lifetime: float
 @export var min_volume_stretch_db: float = -80
+@export var grab_sound_scene: PackedScene
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
@@ -35,6 +36,7 @@ func _ready() -> void:
 	_add_arm_point()
 	arm_stretch_sounds()
 
+
 func _process(delta: float) -> void:
 	if not is_stunned():
 		if Input.is_action_just_pressed("Click"):
@@ -44,6 +46,8 @@ func _process(delta: float) -> void:
 				holding_local_offset = to_local(holding.global_position)
 				holding_global_rotation_on_pickup = holding.global_rotation
 				hand_rotation_on_pickup = global_rotation
+				var grab_sound := grab_sound_scene.instantiate()
+				add_sibling(grab_sound)
 		elif Input.is_action_just_released("Click"):
 			holding = null
 
