@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvup4c1glo5a3"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_hejdf"]
+[ext_resource type="AudioStream" uid="uid://bek2ihh7g7svf" path="res://Audio/Sound Effects/Objects/Rubberball/Rubberballbounce 1.wav" id="2_8g0oa"]
+[ext_resource type="AudioStream" uid="uid://y35ipsnm46pb" path="res://Audio/Sound Effects/Objects/Rubberball/Rubberballbounce 2.wav" id="3_2ujj0"]
+[ext_resource type="AudioStream" uid="uid://bipqbcdn011sr" path="res://Audio/Sound Effects/Objects/Rubberball/Rubberballbounce 3.wav" id="4_i3xi2"]
+
+[node name="RubberBallBounceSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_hejdf")
+sounds = Array[AudioStream]([ExtResource("2_8g0oa"), ExtResource("3_2ujj0"), ExtResource("4_i3xi2")])

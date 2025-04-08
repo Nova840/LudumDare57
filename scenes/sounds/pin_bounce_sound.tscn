@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://c34qh7aahs180"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_uc5ma"]
+[ext_resource type="AudioStream" uid="uid://b6ffckdw6k0h5" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 1.wav" id="2_lknnn"]
+[ext_resource type="AudioStream" uid="uid://t2vtlkk5g0tu" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 2.wav" id="3_xtqaj"]
+[ext_resource type="AudioStream" uid="uid://ctrmv6l48h0p4" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 3.wav" id="4_3vosj"]
+
+[node name="PinBounceSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_uc5ma")
+sounds = Array[AudioStream]([ExtResource("2_lknnn"), ExtResource("3_xtqaj"), ExtResource("4_3vosj")])

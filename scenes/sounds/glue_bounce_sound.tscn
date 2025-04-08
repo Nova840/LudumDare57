@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxxofnpynhtve"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_v4u2f"]
+[ext_resource type="AudioStream" uid="uid://bp33n3r5pnwir" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluebottle 1.wav" id="2_hy4ne"]
+[ext_resource type="AudioStream" uid="uid://b1gyyuwflmvcv" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluebottle 2.wav" id="3_pk04q"]
+[ext_resource type="AudioStream" uid="uid://dk2qi0f3drydn" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluebottle 3.wav" id="4_21chb"]
+
+[node name="GlueBounceSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_v4u2f")
+sounds = Array[AudioStream]([ExtResource("2_hy4ne"), ExtResource("3_pk04q"), ExtResource("4_21chb")])

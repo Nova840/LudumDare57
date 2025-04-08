@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqgdwt5ydfcvu"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_n5mup"]
+[ext_resource type="AudioStream" uid="uid://beltgf5nmvqyd" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluegloop 1.wav" id="2_n5mup"]
+[ext_resource type="AudioStream" uid="uid://tyxo0wdiuoqt" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluegloop 2.wav" id="3_in0uq"]
+[ext_resource type="AudioStream" uid="uid://j0htvbh2qgg2" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluegloop 3.wav" id="4_50be6"]
+
+[node name="GlueHurtSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_n5mup")
+sounds = Array[AudioStream]([ExtResource("2_n5mup"), ExtResource("3_in0uq"), ExtResource("4_50be6")])

@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf3toifvou6el"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_skfq2"]
+[ext_resource type="AudioStream" uid="uid://bqou2tnn4rnpf" path="res://Audio/Sound Effects/Objects/Paper/PaperCollide 1.wav" id="2_cu40y"]
+[ext_resource type="AudioStream" uid="uid://b4jbb8gno3qm2" path="res://Audio/Sound Effects/Objects/Paper/PaperCollide 2.wav" id="3_8csna"]
+[ext_resource type="AudioStream" uid="uid://dxr584x4tattv" path="res://Audio/Sound Effects/Objects/Paper/PaperCollide 3.wav" id="4_7a50x"]
+
+[node name="StickyNotesBounceSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_skfq2")
+sounds = Array[AudioStream]([ExtResource("2_cu40y"), ExtResource("3_8csna"), ExtResource("4_7a50x")])

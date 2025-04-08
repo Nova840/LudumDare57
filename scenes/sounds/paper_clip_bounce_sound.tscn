@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://lrby2l5oo368"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_2dtl3"]
+[ext_resource type="AudioStream" uid="uid://cpkabbphammcd" path="res://Audio/Sound Effects/Objects/Paperclip/Paperclipbump 1.wav" id="2_pypr0"]
+[ext_resource type="AudioStream" uid="uid://dvc3iplcmkqwk" path="res://Audio/Sound Effects/Objects/Paperclip/Paperclipbump 2.wav" id="3_m3e7x"]
+[ext_resource type="AudioStream" uid="uid://bo1jippd2wwvl" path="res://Audio/Sound Effects/Objects/Paperclip/Paperclipbump 3.wav" id="4_danjf"]
+
+[node name="PaperClipBounceSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_2dtl3")
+sounds = Array[AudioStream]([ExtResource("2_pypr0"), ExtResource("3_m3e7x"), ExtResource("4_danjf")])

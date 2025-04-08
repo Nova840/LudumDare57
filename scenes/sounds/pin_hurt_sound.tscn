@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://dja006ln4ossr"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_iic1a"]
+[ext_resource type="AudioStream" uid="uid://4nccda5wfcjm" path="res://Audio/Sound Effects/Objects/Tack/Tackpoke 1.wav" id="2_304ac"]
+[ext_resource type="AudioStream" uid="uid://ngt12x36dk36" path="res://Audio/Sound Effects/Objects/Tack/Tackpoke 2.wav" id="3_s2p38"]
+[ext_resource type="AudioStream" uid="uid://d27gssvy3l4ho" path="res://Audio/Sound Effects/Objects/Tack/Tackpoke 3.wav" id="4_cv6qu"]
+
+[node name="PinHurtSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_iic1a")
+sounds = Array[AudioStream]([ExtResource("2_304ac"), ExtResource("3_s2p38"), ExtResource("4_cv6qu")])

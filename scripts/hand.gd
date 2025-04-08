@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	if arm_point.global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
 		_add_arm_point()
 	arm_line.set_point_position(arm_line.get_point_count() - 1, arm_point.global_position)
-	
+
 	stretch_1.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
 	stretch_2.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
 
@@ -97,9 +97,11 @@ func hit(position_hit_from: Vector2) -> void:
 	time_last_hit = Time.get_ticks_msec()
 	apply_impulse(hit_impulse * (global_position - position_hit_from).normalized())
 	holding = null
+
 	var ouch: Node2D = ouch_scene.instantiate()
 	ouch.global_position = global_position
 	add_sibling(ouch)
+
 	await get_tree().create_timer(ouch_lifetime).timeout
 	ouch.queue_free()
 
@@ -121,7 +123,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	if body is TileMapLayer:
 		var wall_hit_sound := wall_hit_sound_scene.instantiate()
 		add_sibling(wall_hit_sound)
-	
+
 	if body is not RigidBody2D: return
 	var body_rb := body as RigidBody2D
 	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))

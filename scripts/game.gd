@@ -14,6 +14,7 @@ var batteries_retrieved: int = 0
 var game_won: bool = false
 var game_lost: bool = false
 
+
 func _enter_tree() -> void:
 	time_game_started = Time.get_ticks_msec()
 
@@ -22,7 +23,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
 		get_tree().change_scene_to_file("res://scenes/start.tscn")
 
-	if not game_lost and time_left() <= 0:
+	if not game_lost and not game_won and time_left() <= 0:
 		game_lost = true
 		var lose_scene := lose_image.instantiate()
 		add_child(lose_scene)
@@ -30,7 +31,7 @@ func _process(delta: float) -> void:
 
 
 func win() -> void:
-	if game_won or time_left() <= 0: return
+	if game_won or game_lost or time_left() <= 0: return
 
 	game_won = true
 	var win_scene := win_image.instantiate()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7j116uojxaw5"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_oq53v"]
+[ext_resource type="AudioStream" uid="uid://dwisumnomadxl" path="res://Audio/Sound Effects/Objects/Knife/Knifecut 1.wav" id="2_rauef"]
+[ext_resource type="AudioStream" uid="uid://cml7tsy0vns8t" path="res://Audio/Sound Effects/Objects/Knife/Knifecut 2.wav" id="3_q1c3r"]
+[ext_resource type="AudioStream" uid="uid://dvhl68wwrmsxx" path="res://Audio/Sound Effects/Objects/Knife/Knifecut 3.wav" id="4_csxlb"]
+
+[node name="KnifeHurtSound" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_oq53v")
+sounds = Array[AudioStream]([ExtResource("2_rauef"), ExtResource("3_q1c3r"), ExtResource("4_csxlb")])
