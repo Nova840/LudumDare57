@@ -16,6 +16,7 @@ collision_layer = 4
 collision_mask = 7
 contact_monitor = true
 max_contacts_reported = 5
+metadata/pin = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(6.66457, 4.07251)
