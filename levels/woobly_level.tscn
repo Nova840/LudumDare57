@@ -122,11 +122,13 @@ tile_map_data = PackedByteArray("AAD9/wIAAgAAAAAAAAD9/wEAAgAAAAAAAAD9/wMAAQAAAAA
 tile_set = ExtResource("12_qvejs")
 
 [node name="Ldgj-DrawerSneakyside" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(79.5085, 35.2521)
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("13_8j7kv")
 
 [node name="Ldgj-DrawerVibesShade" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(79.5085, 35.2521)
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("14_n68ut")
