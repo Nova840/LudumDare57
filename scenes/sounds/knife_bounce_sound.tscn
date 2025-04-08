@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://b1twys6uo8u6c" path="res://Audio/Sound Effects/Objects/Knife/Knifebump 3.wav" id="4_atbco"]
 
 [node name="KnifeBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_7lyor")
 sounds = Array[AudioStream]([ExtResource("2_7lyor"), ExtResource("3_agttj"), ExtResource("4_atbco")])

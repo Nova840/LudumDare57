@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://bipqbcdn011sr" path="res://Audio/Sound Effects/Objects/Rubberball/Rubberballbounce 3.wav" id="4_i3xi2"]
 
 [node name="RubberBallBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_hejdf")
 sounds = Array[AudioStream]([ExtResource("2_8g0oa"), ExtResource("3_2ujj0"), ExtResource("4_i3xi2")])

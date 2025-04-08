@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://bo1jippd2wwvl" path="res://Audio/Sound Effects/Objects/Paperclip/Paperclipbump 3.wav" id="4_danjf"]
 
 [node name="PaperClipBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_2dtl3")
 sounds = Array[AudioStream]([ExtResource("2_pypr0"), ExtResource("3_m3e7x"), ExtResource("4_danjf")])

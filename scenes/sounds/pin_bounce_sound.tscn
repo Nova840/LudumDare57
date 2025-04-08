@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://ctrmv6l48h0p4" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 3.wav" id="4_3vosj"]
 
 [node name="PinBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_uc5ma")
 sounds = Array[AudioStream]([ExtResource("2_lknnn"), ExtResource("3_xtqaj"), ExtResource("4_3vosj")])

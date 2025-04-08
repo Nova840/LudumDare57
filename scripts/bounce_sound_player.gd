@@ -12,6 +12,6 @@ func _ready() -> void:
 
 
 func _body_entered(body: Node2D) -> void:
-	print("ASDH")
-	var sound := bounce_sound_scene.instantiate()
-	add_child(sound)
+	#var sound := bounce_sound_scene.instantiate()
+	#add_child(sound)
+	pass

@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dk2qi0f3drydn" path="res://Audio/Sound Effects/Objects/Gluebottle/Gluebottle 3.wav" id="4_21chb"]
 
 [node name="GlueBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_v4u2f")
 sounds = Array[AudioStream]([ExtResource("2_hy4ne"), ExtResource("3_pk04q"), ExtResource("4_21chb")])

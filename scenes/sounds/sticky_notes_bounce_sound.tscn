@@ -6,6 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dxr584x4tattv" path="res://Audio/Sound Effects/Objects/Paper/PaperCollide 3.wav" id="4_7a50x"]
 
 [node name="StickyNotesBounceSound" type="AudioStreamPlayer"]
-volume_db = -10.0
+volume_db = -20.0
 script = ExtResource("1_skfq2")
 sounds = Array[AudioStream]([ExtResource("2_cu40y"), ExtResource("3_8csna"), ExtResource("4_7a50x")])
