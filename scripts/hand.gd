@@ -16,6 +16,7 @@ class_name Hand
 @export var ouch_lifetime: float
 @export var min_volume_stretch_db: float = -80
 @export var grab_sound_scene: PackedScene
+@export var wall_hit_sound_scene: PackedScene
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
@@ -117,6 +118,10 @@ func _add_arm_point() -> void:
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	if body is TileMapLayer:
+		var wall_hit_sound := wall_hit_sound_scene.instantiate()
+		add_sibling(wall_hit_sound)
+	
 	if body is not RigidBody2D: return
 	var body_rb := body as RigidBody2D
 	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))

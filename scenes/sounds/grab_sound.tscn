@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://3plv8h2g0c4o"]
+
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_d4nny"]
+[ext_resource type="AudioStream" uid="uid://cobemb7x72p4r" path="res://Audio/Sound Effects/Hand/Grab/Grab 1.wav" id="2_igauv"]
+[ext_resource type="AudioStream" uid="uid://d66c2i5bh0m7" path="res://Audio/Sound Effects/Hand/Grab/Grab 2.wav" id="3_o151o"]
+[ext_resource type="AudioStream" uid="uid://dudadxfw1ipcf" path="res://Audio/Sound Effects/Hand/Grab/Grab 3.wav" id="4_epi3q"]
+
+[node name="GrabSound" type="AudioStreamPlayer"]
+script = ExtResource("1_d4nny")
+sounds = Array[AudioStream]([ExtResource("2_igauv"), ExtResource("3_o151o"), ExtResource("4_epi3q")])
