@@ -1,17 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=17 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
 [ext_resource type="Texture2D" uid="uid://4l326gqwc0pp" path="res://images/LDGJ - TubeTile Final.png" id="2_ligq1"]
 [ext_resource type="Texture2D" uid="uid://dfsmvndlco5tc" path="res://images/LDGJ- Squaretube.png" id="2_v24qn"]
 [ext_resource type="Texture2D" uid="uid://carmc43e3yw7f" path="res://images/LDGJ - Palm Final.png" id="2_y1wyv"]
-[ext_resource type="Texture2D" uid="uid://7an2tjde3q4d" path="res://images/LDGJ - Index.png" id="4_bfalx"]
-[ext_resource type="Texture2D" uid="uid://c8ud8m0ntgt86" path="res://images/LDGJ - Middle.png" id="5_ysndn"]
-[ext_resource type="Texture2D" uid="uid://c2oc2y0t7bv8o" path="res://images/LDGJ - Ring.png" id="6_0eb3b"]
-[ext_resource type="Texture2D" uid="uid://ddvnfg0v6abe7" path="res://images/LDGJ - Pinky.png" id="7_f44jc"]
-[ext_resource type="Texture2D" uid="uid://dw0nw0pb1cfvo" path="res://images/LDGJ - Thumb.png" id="8_cw0k3"]
+[ext_resource type="Texture2D" uid="uid://cu3ftj54w4xno" path="res://images/LDGJ - PinkyV2.png" id="6_y1wyv"]
+[ext_resource type="Texture2D" uid="uid://5dncklartpx7" path="res://images/LDGJ - RingV2.png" id="7_y1wyv"]
+[ext_resource type="Texture2D" uid="uid://cd2jg0ji2jfbl" path="res://images/LDGJ - MiddleV2.png" id="8_v24qn"]
+[ext_resource type="Texture2D" uid="uid://i3sxujtvy2l3" path="res://images/LDGJ - IndexV2.png" id="8_y1wyv"]
+[ext_resource type="Texture2D" uid="uid://c2uk0xlfo7vah" path="res://images/LDGJ - ThumbV2.png" id="9_y1wyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
-size = Vector2(14.4694, 5.34754)
+size = Vector2(15.567, 5.38278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1wyv"]
+size = Vector2(16.5568, 4.68848)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v24qn"]
+size = Vector2(18.8093, 5.1905)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfalx"]
+size = Vector2(19.4647, 4.77196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysndn"]
+size = Vector2(14.7714, 3.917)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
 radius = 15.0
@@ -60,40 +72,17 @@ rotation = -1.37406
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_ligq1")
 
-[node name="Ldgj-Index" type="Sprite2D" parent="."]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_bfalx")
-
-[node name="Ldgj-Middle" type="Sprite2D" parent="."]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("5_ysndn")
-
-[node name="Ldgj-Ring" type="Sprite2D" parent="."]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("6_0eb3b")
-
-[node name="Ldgj-Pinky" type="Sprite2D" parent="."]
-z_index = -1
-rotation = -1.37406
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_f44jc")
-
 [node name="Thumb" type="RigidBody2D" parent="."]
-position = Vector2(-6.6395, -11.1337)
+position = Vector2(-6.45038, -11.0076)
 rotation = -1.37406
+scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Ldgj-Thumb" type="Sprite2D" parent="Thumb"]
+[node name="Thumb" type="Sprite2D" parent="Thumb"]
 z_index = -1
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_cw0k3")
+texture = ExtResource("9_y1wyv")
 offset = Vector2(-192.308, 173.077)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Thumb"]
@@ -105,9 +94,122 @@ angular_limit_lower = 0.600393
 angular_limit_upper = 1.53938
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thumb"]
-position = Vector2(6.14771, 3.95999)
+position = Vector2(5.75965, 3.63718)
 rotation = 0.658539
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ca42v")
+
+[node name="Index" type="RigidBody2D" parent="."]
+position = Vector2(3.79205, -5.98985)
+rotation = -0.792046
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Index" type="Sprite2D" parent="Index"]
+z_index = -1
+position = Vector2(-7.9478, 0.832628)
+rotation = -0.582014
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_y1wyv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Index"]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = 0.0279253
+angular_limit_upper = 1.31947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Index"]
+position = Vector2(6.50256, 4.47304)
+rotation = 0.658539
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_y1wyv")
+
+[node name="Middle" type="RigidBody2D" parent="."]
+position = Vector2(4.17029, 0.151917)
+rotation = -0.583647
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Ldgj-Middle" type="Sprite2D" parent="Middle"]
+z_index = -1
+position = Vector2(-4.08007, -2.8765)
+rotation = -0.790413
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_v24qn")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Middle"]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = 0.0279253
+angular_limit_upper = 1.31947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Middle"]
+position = Vector2(7.64636, 5.27229)
+rotation = 0.658539
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_v24qn")
+
+[node name="Ring" type="RigidBody2D" parent="."]
+position = Vector2(2.43356, 5.31409)
+rotation = -0.487655
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Ldgj-Ring" type="Sprite2D" parent="Ring"]
+z_index = -1
+position = Vector2(-0.416849, -6.02228)
+rotation = -0.886405
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_y1wyv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Ring"]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = 0.0279253
+angular_limit_upper = 1.31947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ring"]
+position = Vector2(6.26944, 4.33692)
+rotation = 0.658539
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bfalx")
+
+[node name="Pinky" type="RigidBody2D" parent="."]
+position = Vector2(-0.803423, 8.78822)
+rotation = -0.144587
+scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Ldgj-Pinky" type="Sprite2D" parent="Pinky"]
+z_index = -1
+position = Vector2(1.67002, -8.95625)
+rotation = -1.22947
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_y1wyv")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Pinky"]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = 0.0279253
+angular_limit_upper = 1.31947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pinky"]
+position = Vector2(5.67719, 4.247)
+rotation = 0.658539
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ysndn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.67518, -0.558388)
