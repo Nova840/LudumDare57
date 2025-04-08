@@ -78,7 +78,6 @@ texture = ExtResource("2_ligq1")
 [node name="Thumb" type="RigidBody2D" parent="."]
 position = Vector2(-6.45038, -11.0076)
 rotation = -1.37406
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
@@ -99,13 +98,11 @@ angular_limit_upper = 1.53938
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thumb"]
 position = Vector2(5.75965, 3.63718)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ca42v")
 
 [node name="Index" type="RigidBody2D" parent="."]
 position = Vector2(3.79205, -5.98985)
 rotation = -0.792046
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
@@ -127,13 +124,11 @@ angular_limit_upper = 1.31947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Index"]
 position = Vector2(6.50256, 4.47304)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y1wyv")
 
 [node name="Middle" type="RigidBody2D" parent="."]
 position = Vector2(4.17029, 0.151917)
 rotation = -0.583647
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
@@ -155,13 +150,11 @@ angular_limit_upper = 1.31947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle"]
 position = Vector2(7.64636, 5.27229)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v24qn")
 
 [node name="Ring" type="RigidBody2D" parent="."]
 position = Vector2(2.43356, 5.31409)
 rotation = -0.487655
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
@@ -183,13 +176,11 @@ angular_limit_upper = 1.31947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring"]
 position = Vector2(6.26944, 4.33692)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bfalx")
 
 [node name="Pinky" type="RigidBody2D" parent="."]
 position = Vector2(-0.803423, 8.78822)
 rotation = -0.144587
-scale = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 0
 
@@ -211,7 +202,6 @@ angular_limit_upper = 1.31947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pinky"]
 position = Vector2(5.67719, 4.247)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ysndn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

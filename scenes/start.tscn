@@ -31,6 +31,22 @@ text = "Test Level"
 script = ExtResource("1_jaeev")
 level_path = "uid://hwr3qacbcdl5"
 
+[node name="TestLevelButton2" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -66.0
+offset_right = 56.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Woobly Level"
+script = ExtResource("1_jaeev")
+level_path = "uid://ciobe2ohcyuiw"
+
 [node name="QuitGameButton" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,4 +63,5 @@ text = "Quit Game"
 script = ExtResource("2_u80x2")
 
 [connection signal="pressed" from="TestLevelButton" to="TestLevelButton" method="_on_pressed"]
+[connection signal="pressed" from="TestLevelButton2" to="TestLevelButton2" method="_on_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="QuitGameButton" method="_on_pressed"]
