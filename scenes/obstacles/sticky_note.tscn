@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brdg7rsbha6l7"]
+[gd_scene load_steps=12 format=3 uid="uid://brdg7rsbha6l7"]
 
 [ext_resource type="Script" uid="uid://lnkbx7xqd5ga" path="res://scripts/sticky_note.gd" id="1_a7xat"]
 [ext_resource type="Texture2D" uid="uid://dk8ve2rh2c2pp" path="res://images/LDGJ- Sticky Note.png" id="1_he06l"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bnii64v6s58db" path="res://images/LDGJ- Sticky Note ToDo.png" id="4_ai8op"]
 [ext_resource type="Texture2D" uid="uid://bfq5xfwnh7q1n" path="res://images/LDGJ- Sticky Note Shopping.png" id="6_pvjm0"]
 [ext_resource type="Texture2D" uid="uid://c4d0kl3quv2e1" path="res://images/LDGJ- Sticky Note LoveLetter.png" id="7_jwtyk"]
+[ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="9_ai8op"]
+[ext_resource type="PackedScene" uid="uid://bf3toifvou6el" path="res://scenes/sounds/sticky_notes_bounce_sound.tscn" id="10_ai8op"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(35.8832, 36.6132)
@@ -16,6 +18,8 @@ size = Vector2(35.8832, 36.6132)
 z_index = 95
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_a7xat")
 base_colors = Array[Color]([Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 0, 1), Color(0, 1, 1, 1)])
 overlay_textures = Array[Texture2D]([ExtResource("2_updku"), ExtResource("3_3d6os"), ExtResource("4_ai8op"), ExtResource("2_kirfa"), ExtResource("6_pvjm0"), ExtResource("7_jwtyk")])
@@ -31,3 +35,7 @@ texture = ExtResource("1_he06l")
 
 [node name="Overlay" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
+
+[node name="BounceSoundPlayer" type="Node" parent="."]
+script = ExtResource("9_ai8op")
+bounce_sound_scene = ExtResource("10_ai8op")

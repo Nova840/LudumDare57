@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=24 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
 [ext_resource type="PackedScene" uid="uid://gppia77rttt6" path="res://scenes/ouch.tscn" id="2_bfalx"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://carmc43e3yw7f" path="res://images/LDGJ - Palm Final.png" id="2_y1wyv"]
 [ext_resource type="PackedScene" uid="uid://3plv8h2g0c4o" path="res://scenes/sounds/grab_sound.tscn" id="3_ysndn"]
 [ext_resource type="PackedScene" uid="uid://ckk72oiec745n" path="res://scenes/sounds/wall_hit_sound.tscn" id="4_0eb3b"]
+[ext_resource type="PackedScene" uid="uid://c7j116uojxaw5" path="res://scenes/sounds/knife_hurt_sound.tscn" id="5_nq5tb"]
+[ext_resource type="PackedScene" uid="uid://dja006ln4ossr" path="res://scenes/sounds/pin_hurt_sound.tscn" id="6_imbvm"]
 [ext_resource type="Texture2D" uid="uid://cu3ftj54w4xno" path="res://images/LDGJ - PinkyV2.png" id="6_y1wyv"]
+[ext_resource type="PackedScene" uid="uid://dqgdwt5ydfcvu" path="res://scenes/sounds/glue_hurt_sound.tscn" id="7_wiqd4"]
 [ext_resource type="Texture2D" uid="uid://5dncklartpx7" path="res://images/LDGJ - RingV2.png" id="7_y1wyv"]
 [ext_resource type="Texture2D" uid="uid://cd2jg0ji2jfbl" path="res://images/LDGJ - MiddleV2.png" id="8_v24qn"]
 [ext_resource type="Texture2D" uid="uid://i3sxujtvy2l3" path="res://images/LDGJ - IndexV2.png" id="8_y1wyv"]
@@ -57,6 +60,9 @@ ouch_lifetime = 1.0
 min_volume_stretch_db = -20.0
 grab_sound_scene = ExtResource("3_ysndn")
 wall_hit_sound_scene = ExtResource("4_0eb3b")
+knife_hurt_sound_scene = ExtResource("5_nq5tb")
+pin_hurt_sound_scene = ExtResource("6_imbvm")
+glue_hurt_sound_scene = ExtResource("7_wiqd4")
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)

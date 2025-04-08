@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://1t5v6uahan4y"]
+[gd_scene load_steps=6 format=3 uid="uid://1t5v6uahan4y"]
 
 [ext_resource type="Texture2D" uid="uid://c8ymf7ewrno0y" path="res://images/LDGJ- Glue.png" id="1_xgfat"]
+[ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="2_yb8pl"]
+[ext_resource type="PackedScene" uid="uid://cxxofnpynhtve" path="res://scenes/sounds/glue_bounce_sound.tscn" id="3_ifusp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(36.3439, 23.0098)
@@ -12,6 +14,8 @@ size = Vector2(14.247, 7.17629)
 z_index = 95
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 5
 metadata/slow = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
@@ -29,3 +33,7 @@ metadata/slow = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_xgfat")
+
+[node name="BounceSoundPlayer" type="Node" parent="."]
+script = ExtResource("2_yb8pl")
+bounce_sound_scene = ExtResource("3_ifusp")

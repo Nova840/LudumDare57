@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bovwaf63802si"]
+[gd_scene load_steps=6 format=3 uid="uid://bovwaf63802si"]
 
 [ext_resource type="Texture2D" uid="uid://db403wi6fumhi" path="res://images/LDGJ - Knife.png" id="1_ufhdc"]
+[ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="2_jy42b"]
+[ext_resource type="PackedScene" uid="uid://dy5gynhgqahue" path="res://scenes/sounds/knife_bounce_sound.tscn" id="3_e2r8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(52.7876, 17.1583)
@@ -12,6 +14,8 @@ size = Vector2(77.7814, 16.7018)
 z_index = 95
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(27.3724, 25.0835)
@@ -27,3 +31,7 @@ metadata/hit = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ufhdc")
+
+[node name="BounceSoundPlayer" type="Node" parent="."]
+script = ExtResource("2_jy42b")
+bounce_sound_scene = ExtResource("3_e2r8l")

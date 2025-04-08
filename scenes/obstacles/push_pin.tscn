@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://48qorbbwh4k"]
+[gd_scene load_steps=6 format=3 uid="uid://48qorbbwh4k"]
 
 [ext_resource type="Texture2D" uid="uid://draar5ku0exn4" path="res://images/LDGJ- Push Pin.png" id="1_pgyeo"]
+[ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="2_nsj4m"]
+[ext_resource type="PackedScene" uid="uid://c34qh7aahs180" path="res://scenes/sounds/pin_bounce_sound.tscn" id="3_nsj4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(33.424, 20.8171)
@@ -12,6 +14,8 @@ size = Vector2(24.4614, 1.65432)
 z_index = 95
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(6.66457, 4.07251)
@@ -27,3 +31,7 @@ metadata/hit = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_pgyeo")
+
+[node name="BounceSoundPlayer" type="Node" parent="."]
+script = ExtResource("2_nsj4m")
+bounce_sound_scene = ExtResource("3_nsj4m")

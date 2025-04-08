@@ -17,6 +17,9 @@ class_name Hand
 @export var min_volume_stretch_db: float = -80
 @export var grab_sound_scene: PackedScene
 @export var wall_hit_sound_scene: PackedScene
+@export var knife_hurt_sound_scene: PackedScene
+@export var pin_hurt_sound_scene: PackedScene
+@export var glue_hurt_sound_scene: PackedScene
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
@@ -93,7 +96,7 @@ func _on_pick_up_area_body_exited(body: Node2D) -> void:
 	bodies_able_to_pick_up.erase(body)
 
 
-func hit(position_hit_from: Vector2) -> void:
+func hit(position_hit_from: Vector2, sound_scene: PackedScene) -> void:
 	time_last_hit = Time.get_ticks_msec()
 	apply_impulse(hit_impulse * (global_position - position_hit_from).normalized())
 	holding = null
@@ -101,6 +104,9 @@ func hit(position_hit_from: Vector2) -> void:
 	var ouch: Node2D = ouch_scene.instantiate()
 	ouch.global_position = global_position
 	add_sibling(ouch)
+
+	var sound := sound_scene.instantiate()
+	add_sibling(sound)
 
 	await get_tree().create_timer(ouch_lifetime).timeout
 	ouch.queue_free()
@@ -129,8 +135,17 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
 
 	if collision_shape.get_meta("hit", false):
-		hit(collision_shape.global_position)
+		var sound: PackedScene
+		if body.name == "Knife":
+			sound = knife_hurt_sound_scene
+		elif body.name == "PushPin":
+			sound = pin_hurt_sound_scene
+		else:
+			sound = knife_hurt_sound_scene
+		hit(collision_shape.global_position, sound)
 	if collision_shape.get_meta("slow", false):
+		var sound := glue_hurt_sound_scene.instantiate()
+		add_sibling(sound)
 		slow += 1
 
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://76oof5hkjjva"]
+[gd_scene load_steps=5 format=3 uid="uid://76oof5hkjjva"]
 
 [ext_resource type="Texture2D" uid="uid://3bdknj423rld" path="res://images/LDGJ- PaperClip.png" id="1_v7y4e"]
+[ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="2_as3em"]
+[ext_resource type="PackedScene" uid="uid://lrby2l5oo368" path="res://scenes/sounds/paper_clip_bounce_sound.tscn" id="3_2kidv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(39.4751, 9.62264)
@@ -9,6 +11,8 @@ size = Vector2(39.4751, 9.62264)
 z_index = 95
 collision_layer = 4
 collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 5
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.372231, -1.87148)
@@ -18,3 +22,7 @@ shape = SubResource("RectangleShape2D_ly3hx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_v7y4e")
+
+[node name="BounceSoundPlayer" type="Node" parent="."]
+script = ExtResource("2_as3em")
+bounce_sound_scene = ExtResource("3_2kidv")
