@@ -14,9 +14,12 @@ class_name Hand
 @export var create_arm_point_distance: float
 @export var ouch_scene: PackedScene
 @export var ouch_lifetime: float
+@export var min_volume_stretch_db: float = -80
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
+@onready var stretch_1: AudioStreamPlayer = $Stretch1
+@onready var stretch_2: AudioStreamPlayer = $Stretch2
 
 var holding: RigidBody2D = null
 var holding_local_offset: Vector2
@@ -30,7 +33,7 @@ var slow: int = 0
 
 func _ready() -> void:
 	_add_arm_point()
-
+	arm_stretch_sounds()
 
 func _process(delta: float) -> void:
 	if not is_stunned():
@@ -47,6 +50,9 @@ func _process(delta: float) -> void:
 	if arm_point.global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
 		_add_arm_point()
 	arm_line.set_point_position(arm_line.get_point_count() - 1, arm_point.global_position)
+	
+	stretch_1.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
+	stretch_2.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
 
 
 func _physics_process(delta: float) -> void:
@@ -124,3 +130,11 @@ func _on_body_shape_exited(body_rid: RID, body: Node, body_shape_index: int, loc
 
 	if collision_shape.get_meta("slow", false):
 		slow -= 1
+
+
+func arm_stretch_sounds() -> void:
+	while true:
+		stretch_1.play()
+		await get_tree().create_timer(40).timeout
+		stretch_2.play()
+		await get_tree().create_timer(40).timeout
