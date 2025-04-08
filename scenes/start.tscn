@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://g82ojsh03sv7"]
+[gd_scene load_steps=5 format=3 uid="uid://g82ojsh03sv7"]
 
 [ext_resource type="Script" uid="uid://bvb5g0ah7vclm" path="res://scripts/level_button.gd" id="1_jaeev"]
 [ext_resource type="Script" uid="uid://dq4w1jd5xjvim" path="res://scripts/quit_game_button.gd" id="2_u80x2"]
 [ext_resource type="Texture2D" uid="uid://d163864vb2cul" path="res://images/LDGJ- TitleScreen.png" id="3_bodal"]
+[ext_resource type="PackedScene" uid="uid://b8wl7oj40mec4" path="res://scenes/sounds/drawer_open_sound.tscn" id="3_kdmts"]
 
 [node name="Start" type="Node"]
 
@@ -15,22 +16,6 @@ grow_vertical = 2
 texture = ExtResource("3_bodal")
 expand_mode = 1
 
-[node name="TestLevelButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -15.5
-offset_right = 42.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Test Level"
-script = ExtResource("1_jaeev")
-level_path = "uid://hwr3qacbcdl5"
-
 [node name="TestLevelButton2" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,13 +23,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -55.0
-offset_top = -66.0
+offset_top = -17.6847
 offset_right = 56.0
-offset_bottom = -35.0
+offset_bottom = 13.3153
 grow_horizontal = 2
 grow_vertical = 2
-text = "Woobly Level"
+text = "Play"
 script = ExtResource("1_jaeev")
+drawer_open_sound = ExtResource("3_kdmts")
 level_path = "uid://ciobe2ohcyuiw"
 
 [node name="QuitGameButton" type="Button" parent="."]
@@ -62,6 +48,5 @@ grow_vertical = 2
 text = "Quit Game"
 script = ExtResource("2_u80x2")
 
-[connection signal="pressed" from="TestLevelButton" to="TestLevelButton" method="_on_pressed"]
 [connection signal="pressed" from="TestLevelButton2" to="TestLevelButton2" method="_on_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="QuitGameButton" method="_on_pressed"]

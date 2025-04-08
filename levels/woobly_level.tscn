@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://ciobe2ohcyuiw"]
+[gd_scene load_steps=26 format=4 uid="uid://ciobe2ohcyuiw"]
 
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_lc123"]
 [ext_resource type="Script" uid="uid://du3jywc0sbrek" path="res://scripts/instruction_label.gd" id="2_2vrtm"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://carb71b6fx06x" path="res://scripts/time_label.gd" id="4_k7b84"]
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="5_ggkv2"]
 [ext_resource type="PackedScene" uid="uid://dch5a6eejecp0" path="res://scenes/camera.tscn" id="6_0u6pl"]
-[ext_resource type="PackedScene" uid="uid://caa8o6eykja87" path="res://scenes/music.tscn" id="7_cwer4"]
 [ext_resource type="Texture2D" uid="uid://de2egisd00rrf" path="res://images/LDGJ- Drawer Background.png" id="8_p1bo6"]
 [ext_resource type="PackedScene" uid="uid://kq4dogevv8kq" path="res://scenes/placement_area.tscn" id="9_ppann"]
 [ext_resource type="Texture2D" uid="uid://bn1crf5372lln" path="res://images/LDGJ - Background.png" id="10_e24bg"]
@@ -71,8 +70,6 @@ script = ExtResource("4_k7b84")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("6_0u6pl")]
 follow = NodePath("../Hand")
-
-[node name="Music" parent="." instance=ExtResource("7_cwer4")]
 
 [node name="Ldgj-DrawerBackground" type="Sprite2D" parent="."]
 position = Vector2(67.09, -719.63)

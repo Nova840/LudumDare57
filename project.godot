@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4")
 
 buses/default_bus_layout="uid://csmljj0ugyqn1"
 
+[autoload]
+
+Music="*res://scenes/music.tscn"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
