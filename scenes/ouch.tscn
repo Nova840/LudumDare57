@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://gppia77rttt6"]
+
+[ext_resource type="Texture2D" uid="uid://dhy0y3pgx24hw" path="res://images/LDGJ- Ouch!.png" id="1_ibas7"]
+
+[node name="Ouch" type="Node2D"]
+z_index = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ibas7")

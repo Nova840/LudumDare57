@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://batc1pns0nuxj"]
+[gd_scene load_steps=18 format=3 uid="uid://batc1pns0nuxj"]
 
 [ext_resource type="Script" uid="uid://b1jjcm5x4ug6f" path="res://scripts/hand.gd" id="1_ligq1"]
+[ext_resource type="PackedScene" uid="uid://gppia77rttt6" path="res://scenes/ouch.tscn" id="2_bfalx"]
 [ext_resource type="Texture2D" uid="uid://4l326gqwc0pp" path="res://images/LDGJ - TubeTile Final.png" id="2_ligq1"]
 [ext_resource type="Texture2D" uid="uid://dfsmvndlco5tc" path="res://images/LDGJ- Squaretube.png" id="2_v24qn"]
 [ext_resource type="Texture2D" uid="uid://carmc43e3yw7f" path="res://images/LDGJ - Palm Final.png" id="2_y1wyv"]
@@ -48,6 +49,8 @@ rotate_linear_speed_threshold = 30.0
 slow_rotate_linear_speed_threshold = 3.0
 pick_up_mask = 4
 create_arm_point_distance = 5.0
+ouch_scene = ExtResource("2_bfalx")
+ouch_lifetime = 1.0
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)

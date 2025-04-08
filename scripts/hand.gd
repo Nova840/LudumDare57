@@ -12,6 +12,8 @@ class_name Hand
 @export var slow_rotate_linear_speed_threshold: float
 @export_flags_2d_physics var pick_up_mask: int
 @export var create_arm_point_distance: float
+@export var ouch_scene: PackedScene
+@export var ouch_lifetime: float
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
@@ -84,6 +86,11 @@ func hit(position_hit_from: Vector2) -> void:
 	time_last_hit = Time.get_ticks_msec()
 	apply_impulse(hit_impulse * (global_position - position_hit_from).normalized())
 	holding = null
+	var ouch: Node2D = ouch_scene.instantiate()
+	ouch.global_position = global_position
+	add_sibling(ouch)
+	await get_tree().create_timer(ouch_lifetime).timeout
+	ouch.queue_free()
 
 
 func is_stunned() -> bool:
