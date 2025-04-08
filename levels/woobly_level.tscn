@@ -1,7 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://ciobe2ohcyuiw"]
+[gd_scene load_steps=26 format=4 uid="uid://ciobe2ohcyuiw"]
 
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_lc123"]
 [ext_resource type="Script" uid="uid://du3jywc0sbrek" path="res://scripts/instruction_label.gd" id="2_2vrtm"]
+[ext_resource type="PackedScene" uid="uid://batce4cw5h748" path="res://scenes/win_image.tscn" id="2_ld0xp"]
+[ext_resource type="PackedScene" uid="uid://bjcltpqxrowjf" path="res://scenes/lose_image.tscn" id="3_k7b84"]
 [ext_resource type="Texture2D" uid="uid://qhc2gl0p2yxu" path="res://images/LDGJ- Battery.png" id="3_ld0xp"]
 [ext_resource type="Script" uid="uid://carb71b6fx06x" path="res://scripts/time_label.gd" id="4_k7b84"]
 [ext_resource type="PackedScene" uid="uid://batc1pns0nuxj" path="res://scenes/hand.tscn" id="5_ggkv2"]
@@ -33,6 +35,8 @@ sources/0 = SubResource("TileSetAtlasSource_68kkm")
 
 [node name="Game" type="Node"]
 script = ExtResource("1_lc123")
+win_image = ExtResource("2_ld0xp")
+lose_image = ExtResource("3_k7b84")
 game_time = 120.0
 
 [node name="UILayer" type="CanvasLayer" parent="."]
