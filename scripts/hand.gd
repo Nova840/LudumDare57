@@ -136,7 +136,6 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 
 	if collision_shape.get_meta("hit", false):
 		var sound: PackedScene
-		print(body.name)
 		if body.get_meta("knife", false):
 			sound = knife_hurt_sound_scene
 		elif body.get_meta("pin", false):
