@@ -23,6 +23,7 @@ max_contacts_reported = 5
 script = ExtResource("1_a7xat")
 base_colors = Array[Color]([Color(1, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 0, 1), Color(0, 1, 1, 1)])
 overlay_textures = Array[Texture2D]([ExtResource("2_updku"), ExtResource("3_3d6os"), ExtResource("4_ai8op"), ExtResource("2_kirfa"), ExtResource("6_pvjm0"), ExtResource("7_jwtyk")])
+chance_of_overlay = 0.2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.308117, -0.382222)
