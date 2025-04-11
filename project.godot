@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="LudumDare57"
+config/version="1.1.0"
 run/main_scene="uid://g82ojsh03sv7"
 config/features=PackedStringArray("4.4")
+config/icon="uid://qhc2gl0p2yxu"
 
 [audio]
 
