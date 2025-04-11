@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0fmxe0u7iv0c"]
+
+[ext_resource type="Script" uid="uid://dmo25eqj4653y" path="res://scripts/cursor_confine.gd" id="1_dqucp"]
+
+[node name="CursorConfine" type="Node"]
+script = ExtResource("1_dqucp")
