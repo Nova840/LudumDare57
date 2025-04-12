@@ -23,7 +23,6 @@ buses/default_bus_layout="uid://csmljj0ugyqn1"
 [autoload]
 
 Music="*res://scenes/music.tscn"
-CursorConfine="*res://scenes/cursor_confine.tscn"
 
 [debug]
 

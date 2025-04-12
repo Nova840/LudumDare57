@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://g82ojsh03sv7"]
+[gd_scene load_steps=6 format=3 uid="uid://g82ojsh03sv7"]
 
+[ext_resource type="Script" uid="uid://ks55epcq3y6d" path="res://scripts/start.gd" id="1_0auqf"]
 [ext_resource type="Script" uid="uid://bvb5g0ah7vclm" path="res://scripts/level_button.gd" id="1_jaeev"]
 [ext_resource type="Script" uid="uid://dq4w1jd5xjvim" path="res://scripts/quit_game_button.gd" id="2_u80x2"]
 [ext_resource type="Texture2D" uid="uid://d163864vb2cul" path="res://images/LDGJ- TitleScreen.png" id="3_bodal"]
 [ext_resource type="PackedScene" uid="uid://b8wl7oj40mec4" path="res://scenes/sounds/drawer_open_sound.tscn" id="3_kdmts"]
 
 [node name="Start" type="Node"]
+script = ExtResource("1_0auqf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15

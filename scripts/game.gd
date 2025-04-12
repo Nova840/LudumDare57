@@ -19,6 +19,10 @@ func _enter_tree() -> void:
 	time_game_started = Time.get_ticks_msec()
 
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
 		get_tree().change_scene_to_file("res://scenes/start.tscn")
