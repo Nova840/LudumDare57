@@ -66,6 +66,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	gravity_scale = is_stunned() # I guess you can do this lol
+
 	if not is_stunned():
 		var target_global_position := get_global_mouse_position()
 		target_global_position = global_position.lerp(target_global_position, clampf(move_speed * delta, 0, 1))
