@@ -114,7 +114,6 @@ angular_limit_upper = 1.53938
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thumb"]
 position = Vector2(3.45553, 1.85433)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ca42v")
 
 [node name="Index" type="RigidBody2D" parent="."]
@@ -199,7 +198,6 @@ angular_limit_upper = 1.31947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring"]
 position = Vector2(2.74813, 1.61225)
 rotation = 0.658539
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bfalx")
 
 [node name="Pinky" type="RigidBody2D" parent="."]
