@@ -18,19 +18,19 @@
 [ext_resource type="AudioStream" uid="uid://42s7ya0pqdv8" path="res://Audio/Sound Effects/Hand/Arm Stretch(repeat at 40s).wav" id="11_bfalx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
-size = Vector2(15.567, 5.38278)
+size = Vector2(9.74034, 5.38278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1wyv"]
-size = Vector2(16.5568, 4.68848)
+size = Vector2(9.12108, 4.68848)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v24qn"]
-size = Vector2(18.8093, 5.1905)
+size = Vector2(9.85779, 5.1905)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfalx"]
-size = Vector2(19.4647, 4.77196)
+size = Vector2(10.56, 4.77196)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysndn"]
-size = Vector2(14.7714, 3.917)
+size = Vector2(8.28481, 3.917)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
 radius = 15.0
@@ -50,6 +50,8 @@ max_speed = 200.0
 slow_max_speed = 20.0
 hit_impulse = 10000.0
 hit_cooldown = 2.0
+hit_repeat_cooldown = 0.25
+slow_cooldown = 0.5
 rotate_speed = 10.0
 rotate_linear_speed_threshold = 30.0
 slow_rotate_linear_speed_threshold = 3.0
@@ -92,6 +94,8 @@ position = Vector2(-6.45038, -11.0076)
 rotation = -1.37406
 collision_layer = 2
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Thumb" type="Sprite2D" parent="Thumb"]
 z_index = -1
@@ -108,8 +112,9 @@ angular_limit_lower = 0.600393
 angular_limit_upper = 1.53938
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thumb"]
-position = Vector2(5.75965, 3.63718)
+position = Vector2(3.45553, 1.85433)
 rotation = 0.658539
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ca42v")
 
 [node name="Index" type="RigidBody2D" parent="."]
@@ -117,6 +122,8 @@ position = Vector2(3.79205, -5.98985)
 rotation = -0.792046
 collision_layer = 2
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Index" type="Sprite2D" parent="Index"]
 z_index = -1
@@ -134,7 +141,7 @@ angular_limit_lower = 0.0279253
 angular_limit_upper = 1.31947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Index"]
-position = Vector2(6.50256, 4.47304)
+position = Vector2(3.56215, 2.19785)
 rotation = 0.658539
 shape = SubResource("RectangleShape2D_y1wyv")
 
@@ -143,6 +150,8 @@ position = Vector2(4.17029, 0.151917)
 rotation = -0.583647
 collision_layer = 2
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Ldgj-Middle" type="Sprite2D" parent="Middle"]
 z_index = -1
@@ -160,7 +169,7 @@ angular_limit_lower = 0.0279253
 angular_limit_upper = 1.31947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Middle"]
-position = Vector2(7.64636, 5.27229)
+position = Vector2(4.10654, 2.5333)
 rotation = 0.658539
 shape = SubResource("RectangleShape2D_v24qn")
 
@@ -169,6 +178,8 @@ position = Vector2(2.43356, 5.31409)
 rotation = -0.487655
 collision_layer = 2
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Ldgj-Ring" type="Sprite2D" parent="Ring"]
 z_index = -1
@@ -186,8 +197,9 @@ angular_limit_lower = 0.0279253
 angular_limit_upper = 1.31947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring"]
-position = Vector2(6.26944, 4.33692)
+position = Vector2(2.74813, 1.61225)
 rotation = 0.658539
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bfalx")
 
 [node name="Pinky" type="RigidBody2D" parent="."]
@@ -195,6 +207,8 @@ position = Vector2(-0.803423, 8.78822)
 rotation = -0.144587
 collision_layer = 2
 collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 10
 
 [node name="Ldgj-Pinky" type="Sprite2D" parent="Pinky"]
 z_index = -1
@@ -212,7 +226,7 @@ angular_limit_lower = 0.0279253
 angular_limit_upper = 1.31947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pinky"]
-position = Vector2(5.67719, 4.247)
+position = Vector2(3.11211, 2.26222)
 rotation = 0.658539
 shape = SubResource("RectangleShape2D_ysndn")
 
@@ -235,6 +249,10 @@ stream = ExtResource("11_bfalx")
 stream = ExtResource("11_bfalx")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
-[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+[connection signal="body_shape_entered" from="Thumb" to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Index" to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Middle" to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Ring" to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Pinky" to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_pick_up_area_body_entered"]
 [connection signal="body_exited" from="PickUpArea" to="." method="_on_pick_up_area_body_exited"]

@@ -7,6 +7,8 @@ class_name Hand
 @export var slow_max_speed: float
 @export var hit_impulse: float
 @export var hit_cooldown: float
+@export var hit_repeat_cooldown: float
+@export var slow_cooldown: float
 @export var rotate_speed: float
 @export var rotate_linear_speed_threshold: float
 @export var slow_rotate_linear_speed_threshold: float
@@ -32,8 +34,8 @@ var holding_global_rotation_on_pickup: float
 var hand_rotation_on_pickup: float
 var bodies_able_to_pick_up: Array[RigidBody2D] = []
 var time_last_hit: float = -INF
+var time_last_slow: float = -INF
 var position_last_arm_point_added: Vector2
-var slow: int = 0
 
 
 func _ready() -> void:
@@ -97,6 +99,8 @@ func _on_pick_up_area_body_exited(body: Node2D) -> void:
 
 
 func hit(position_hit_from: Vector2, sound_scene: PackedScene) -> void:
+	if time_last_hit + hit_repeat_cooldown * 1000 > Time.get_ticks_msec(): return
+
 	time_last_hit = Time.get_ticks_msec()
 	apply_impulse(hit_impulse * (global_position - position_hit_from).normalized())
 	holding = null
@@ -117,7 +121,8 @@ func is_stunned() -> bool:
 
 
 func is_slow() -> bool:
-	return slow > 0 or (is_instance_valid(holding) and holding.get_meta("slow", false))
+	return time_last_slow + slow_cooldown * 1000 > Time.get_ticks_msec() or \
+			(is_instance_valid(holding) and holding.get_meta("slow", false))
 
 
 func _add_arm_point() -> void:
@@ -146,16 +151,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	if collision_shape.get_meta("slow", false):
 		var sound := glue_hurt_sound_scene.instantiate()
 		add_sibling(sound)
-		slow += 1
-
-
-func _on_body_shape_exited(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	if body is not RigidBody2D: return
-	var body_rb := body as RigidBody2D
-	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
-
-	if collision_shape.get_meta("slow", false):
-		slow -= 1
+		time_last_slow = Time.get_ticks_msec()
 
 
 func arm_stretch_sounds() -> void:

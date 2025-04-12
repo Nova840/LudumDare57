@@ -131,7 +131,7 @@ scale = Vector2(0.31, 0.31)
 texture = ExtResource("14_n68ut")
 
 [node name="Knife" parent="." instance=ExtResource("15_ktmsy")]
-position = Vector2(21, 262)
+position = Vector2(443, 255)
 
 [node name="Knife2" parent="." instance=ExtResource("15_ktmsy")]
 position = Vector2(548, 1704)
@@ -359,7 +359,7 @@ position = Vector2(259, 940)
 rotation = -0.261799
 
 [node name="Glue" parent="." instance=ExtResource("17_u3ji3")]
-position = Vector2(580, 1019)
+position = Vector2(-104, 254)
 
 [node name="Glue2" parent="." instance=ExtResource("17_u3ji3")]
 position = Vector2(1527, 1001)
@@ -662,7 +662,7 @@ position = Vector2(472, 663)
 position = Vector2(501, 1081)
 
 [node name="RubberBandBall" parent="." instance=ExtResource("20_tcb2l")]
-position = Vector2(-173, 303)
+position = Vector2(416, 290)
 
 [node name="RubberBandBall2" parent="." instance=ExtResource("20_tcb2l")]
 position = Vector2(311, 831)
@@ -740,7 +740,7 @@ position = Vector2(206, 1008)
 position = Vector2(376, 993)
 
 [node name="PaperClip74" parent="." instance=ExtResource("18_2uu4d")]
-position = Vector2(-84, 285)
+position = Vector2(244, 312)
 
 [node name="PaperClip112" parent="." instance=ExtResource("18_2uu4d")]
 position = Vector2(1353, 1126)
@@ -1526,7 +1526,7 @@ position = Vector2(282, 904)
 position = Vector2(476, 1052)
 
 [node name="RubberBandBall18" parent="." instance=ExtResource("20_tcb2l")]
-position = Vector2(-78, 207)
+position = Vector2(401, 322)
 
 [node name="RubberBandBall23" parent="." instance=ExtResource("20_tcb2l")]
 position = Vector2(1582, 987)
