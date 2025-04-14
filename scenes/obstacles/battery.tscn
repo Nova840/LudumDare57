@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://deu4e823pbvo0"]
+[gd_scene load_steps=8 format=3 uid="uid://deu4e823pbvo0"]
 
 [ext_resource type="Texture2D" uid="uid://qhc2gl0p2yxu" path="res://images/LDGJ- Battery.png" id="1_kuiix"]
 [ext_resource type="Script" uid="uid://c8r4vtksju7m5" path="res://scripts/bounce_sound_player.gd" id="2_xkwj8"]
 [ext_resource type="PackedScene" uid="uid://ckk72oiec745n" path="res://scenes/sounds/wall_hit_sound.tscn" id="3_cdm0t"]
+[ext_resource type="Texture2D" uid="uid://bo4fa64hkwaqh" path="res://images/LDGJ- Twinkly.png" id="4_cdm0t"]
+[ext_resource type="Material" uid="uid://dybvpqpn0cxp7" path="res://scenes/obstacles/battery_particles.tres" id="5_kd4fm"]
+[ext_resource type="Script" uid="uid://cwde0ud72a5t6" path="res://scripts/battery_particles.gd" id="5_osjw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly3hx"]
 size = Vector2(28.2375, 50.7593)
@@ -26,3 +29,13 @@ texture = ExtResource("1_kuiix")
 [node name="BounceSoundPlayer" type="Node" parent="."]
 script = ExtResource("2_xkwj8")
 bounce_sound_scene = ExtResource("3_cdm0t")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+physics_interpolation_mode = 2
+top_level = true
+z_index = 200
+amount = 4
+texture = ExtResource("4_cdm0t")
+lifetime = 2.0
+process_material = ExtResource("5_kd4fm")
+script = ExtResource("5_osjw4")
