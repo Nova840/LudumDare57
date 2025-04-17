@@ -16,7 +16,6 @@ class_name Hand
 @export var create_arm_point_distance: float
 @export var ouch_scene: PackedScene
 @export var ouch_lifetime: float
-@export var min_volume_stretch_db: float = -80
 @export var grab_sound_scene: PackedScene
 @export var wall_hit_sound_scene: PackedScene
 @export var knife_hurt_sound_scene: PackedScene
@@ -40,7 +39,7 @@ var position_last_arm_point_added: Vector2
 
 func _ready() -> void:
 	_add_arm_point()
-	arm_stretch_sounds()
+	_arm_stretch_sounds()
 
 
 func _process(delta: float) -> void:
@@ -61,8 +60,8 @@ func _process(delta: float) -> void:
 		_add_arm_point()
 	arm_line.set_point_position(arm_line.get_point_count() - 1, arm_point.global_position)
 
-	stretch_1.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
-	stretch_2.volume_db = lerp(min_volume_stretch_db, 0.0, clampf(linear_velocity.length() / max_speed, 0, 1))
+	stretch_1.volume_linear = clampf(linear_velocity.length() / max_speed, 0, 1)
+	stretch_2.volume_linear = clampf(linear_velocity.length() / max_speed, 0, 1)
 
 
 func _physics_process(delta: float) -> void:
@@ -156,7 +155,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		time_last_slow = Time.get_ticks_msec()
 
 
-func arm_stretch_sounds() -> void:
+func _arm_stretch_sounds() -> void:
 	while true:
 		stretch_1.play()
 		await get_tree().create_timer(40).timeout

@@ -59,7 +59,6 @@ pick_up_mask = 4
 create_arm_point_distance = 5.0
 ouch_scene = ExtResource("2_bfalx")
 ouch_lifetime = 1.0
-min_volume_stretch_db = -20.0
 grab_sound_scene = ExtResource("3_ysndn")
 wall_hit_sound_scene = ExtResource("4_0eb3b")
 knife_hurt_sound_scene = ExtResource("5_nq5tb")
