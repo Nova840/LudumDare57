@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 				holding_global_rotation_on_pickup = holding.global_rotation
 				hand_rotation_on_pickup = global_rotation
 				var grab_sound := grab_sound_scene.instantiate()
-				add_sibling(grab_sound)
+				add_child(grab_sound)
 		elif Input.is_action_just_released("Click"):
 			holding = null
 
@@ -107,11 +107,12 @@ func hit(position_hit_from: Vector2, sound_scene: PackedScene) -> void:
 	holding = null
 
 	var ouch: Node2D = ouch_scene.instantiate()
+	ouch.top_level = true
 	ouch.global_position = global_position
-	add_sibling(ouch)
+	add_child(ouch)
 
 	var sound := sound_scene.instantiate()
-	add_sibling(sound)
+	add_child(sound)
 
 	await get_tree().create_timer(ouch_lifetime).timeout
 	ouch.queue_free()
@@ -134,7 +135,7 @@ func _add_arm_point() -> void:
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	if body is TileMapLayer:
 		var wall_hit_sound := wall_hit_sound_scene.instantiate()
-		add_sibling(wall_hit_sound)
+		add_child(wall_hit_sound)
 
 	if body is not RigidBody2D: return
 	var body_rb := body as RigidBody2D
@@ -151,7 +152,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		hit(collision_shape.global_position, sound)
 	if collision_shape.get_meta("slow", false):
 		var sound := glue_hurt_sound_scene.instantiate()
-		add_sibling(sound)
+		add_child(sound)
 		time_last_slow = Time.get_ticks_msec()
 
 
