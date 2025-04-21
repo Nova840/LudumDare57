@@ -18,6 +18,7 @@ class_name Hand
 @export var ouch_lifetime: float
 @export var grab_sound_scene: PackedScene
 @export var wall_hit_sound_scene: PackedScene
+@export var wall_hit_sound_cooldown: float
 @export var knife_hurt_sound_scene: PackedScene
 @export var pin_hurt_sound_scene: PackedScene
 @export var glue_hurt_sound_scene: PackedScene
@@ -34,6 +35,7 @@ var hand_rotation_on_pickup: float
 var bodies_able_to_pick_up: Array[RigidBody2D] = []
 var time_last_hit: float = -INF
 var time_last_slow: float = -INF
+var time_last_wall_hit: float = -INF
 var position_last_arm_point_added: Vector2
 
 
@@ -134,12 +136,11 @@ func _add_arm_point() -> void:
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	if body is TileMapLayer:
-		var wall_hit_sound := wall_hit_sound_scene.instantiate()
-		add_child(wall_hit_sound)
+		play_wall_hit_sound()
 
-	if body is not RigidBody2D: return
-	var body_rb := body as RigidBody2D
-	var collision_shape: CollisionShape2D = body_rb.shape_owner_get_owner(body_rb.shape_find_owner(body_shape_index))
+	if body is not PhysicsBody2D: return
+	var body_pb := body as PhysicsBody2D
+	var collision_shape: CollisionShape2D = body_pb.shape_owner_get_owner(body_pb.shape_find_owner(body_shape_index))
 
 	if collision_shape.get_meta("hit", false):
 		var sound: PackedScene
@@ -154,6 +155,8 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		var sound := glue_hurt_sound_scene.instantiate()
 		add_child(sound)
 		time_last_slow = Time.get_ticks_msec()
+	if body_pb is StaticBody2D:
+		play_wall_hit_sound()
 
 
 func _arm_stretch_sounds() -> void:
@@ -162,3 +165,10 @@ func _arm_stretch_sounds() -> void:
 		await get_tree().create_timer(40).timeout
 		stretch_2.play()
 		await get_tree().create_timer(40).timeout
+
+
+func play_wall_hit_sound() -> void:
+	if time_last_wall_hit + wall_hit_sound_cooldown * 1000 < Time.get_ticks_msec():
+		var wall_hit_sound := wall_hit_sound_scene.instantiate()
+		add_child(wall_hit_sound)
+		time_last_wall_hit = Time.get_ticks_msec()
