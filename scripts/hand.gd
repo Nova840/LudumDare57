@@ -22,6 +22,7 @@ class_name Hand
 @export var knife_hurt_sound_scene: PackedScene
 @export var pin_hurt_sound_scene: PackedScene
 @export var glue_hurt_sound_scene: PackedScene
+@export var glue_hurt_sound_cooldown: float
 
 @onready var arm_point: Node2D = $ArmPoint
 @onready var arm_line: Line2D = $ArmPoint/ArmLine
@@ -157,9 +158,10 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 			sound = knife_hurt_sound_scene
 		hit(collision_shape.global_position, sound)
 	if collision_shape.get_meta("slow", false):
-		var sound := glue_hurt_sound_scene.instantiate()
-		add_child(sound)
-		time_last_slow = Time.get_ticks_msec()
+		if time_last_slow + glue_hurt_sound_cooldown * 1000 < Time.get_ticks_msec():
+			var sound := glue_hurt_sound_scene.instantiate()
+			add_child(sound)
+			time_last_slow = Time.get_ticks_msec()
 	if body_pb is StaticBody2D:
 		play_wall_hit_sound()
 

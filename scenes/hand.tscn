@@ -65,6 +65,7 @@ wall_hit_sound_cooldown = 0.2
 knife_hurt_sound_scene = ExtResource("5_nq5tb")
 pin_hurt_sound_scene = ExtResource("6_imbvm")
 glue_hurt_sound_scene = ExtResource("7_wiqd4")
+glue_hurt_sound_cooldown = 1.0
 
 [node name="ArmPoint" type="Node2D" parent="."]
 position = Vector2(-23.4524, 3.57371)
