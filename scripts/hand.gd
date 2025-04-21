@@ -37,6 +37,7 @@ var time_last_hit: float = -INF
 var time_last_slow: float = -INF
 var time_last_wall_hit: float = -INF
 var position_last_arm_point_added: Vector2
+var position_last_physics_process: Vector2
 
 
 func _ready() -> void:
@@ -61,9 +62,6 @@ func _process(delta: float) -> void:
 	if arm_point.global_position.distance_to(position_last_arm_point_added) >= create_arm_point_distance:
 		_add_arm_point()
 	arm_line.set_point_position(arm_line.get_point_count() - 1, arm_point.global_position)
-
-	stretch_1.volume_linear = clampf(linear_velocity.length() / max_speed, 0, 1)
-	stretch_2.volume_linear = clampf(linear_velocity.length() / max_speed, 0, 1)
 
 
 func _physics_process(delta: float) -> void:
@@ -91,6 +89,13 @@ func _physics_process(delta: float) -> void:
 		# Works better just setting the rotation for some reason
 		#holding.angular_velocity = (holding_target_global_rotation - holding.global_rotation) / delta
 		holding.global_rotation = holding_target_global_rotation
+
+	var real_velocity: Vector2 = (global_position - position_last_physics_process) / delta
+	var stretch_volume: float = clampf(real_velocity.length() / max_speed, 0, 1)
+	stretch_1.volume_linear = stretch_volume
+	stretch_2.volume_linear = stretch_volume
+
+	position_last_physics_process = global_position
 
 
 func _on_pick_up_area_body_entered(body: Node2D) -> void:
