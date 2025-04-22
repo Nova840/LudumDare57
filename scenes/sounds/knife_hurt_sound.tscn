@@ -14,4 +14,5 @@ stream_2/stream = ExtResource("4_csxlb")
 [node name="KnifeHurtSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_rauef")
 volume_db = -10.0
+max_distance = 500.0
 script = ExtResource("1_oq53v")

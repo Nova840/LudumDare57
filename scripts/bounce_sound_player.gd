@@ -2,9 +2,16 @@ extends Node
 class_name BounceSoundPlayer
 
 
+static var recent_sounds_played_times: Array[float] = []
+const NUM_SOUNDS: int = 5
+
 @export var bounce_sound_scene: PackedScene
+@export var bounce_sound_speed_threshold: float = 200
+@export var bounce_sound_cooldown: float = .2
 
 @onready var rb: RigidBody2D = $".."
+
+var time_last_sound_played: float = -INF
 
 
 func _ready() -> void:
@@ -12,6 +19,46 @@ func _ready() -> void:
 
 
 func _body_entered(body: Node2D) -> void:
-	#var sound := bounce_sound_scene.instantiate()
-	#add_child(sound)
-	pass
+	var other_velocity := get_contact_velocity()
+	var relative_velocity: Vector2 = get_parent().linear_velocity - other_velocity
+
+	if relative_velocity.length() >= bounce_sound_speed_threshold and \
+			time_last_sound_played + bounce_sound_cooldown * 1000 <= Time.get_ticks_msec() and \
+			num_sounds_playing() < NUM_SOUNDS:
+		var sound := bounce_sound_scene.instantiate()
+		if sound is AudioStreamPlayer2D:
+			sound.top_level = true
+			sound.global_position = get_parent().global_position
+		add_child(sound)
+		time_last_sound_played = Time.get_ticks_msec()
+		recent_sounds_played_times.append(Time.get_ticks_msec())
+		if recent_sounds_played_times.size() > NUM_SOUNDS:
+			recent_sounds_played_times.remove_at(0)
+
+
+func get_contact_velocity(contact_idx: int = 0) -> Vector2:
+	var state := PhysicsServer2D.body_get_direct_state(get_parent())
+	var other_collider := state.get_contact_collider_object(0)
+	if other_collider is not CollisionShape2D: return Vector2.ZERO
+	var other_rigidbody := find_rigidbody_from_shape(other_collider)
+	if not is_instance_valid(other_rigidbody): return Vector2.ZERO
+	return other_rigidbody.linear_velocity
+
+
+func find_rigidbody_from_shape(shape: CollisionShape2D) -> RigidBody2D:
+	var current = shape
+	while is_instance_valid(current):
+		if current is RigidBody2D:
+			return current
+		current = current.get_parent()
+	return null
+
+
+static func num_sounds_playing() -> int:
+	var sounds := recent_sounds_played_times.size()
+	for time in recent_sounds_played_times:
+		# Sounds playing in past 1 second
+		if time >= Time.get_ticks_msec() - 1 * 1000:
+			return sounds
+		sounds -= 1
+	return sounds

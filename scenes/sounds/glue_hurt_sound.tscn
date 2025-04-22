@@ -14,4 +14,5 @@ stream_2/stream = ExtResource("4_50be6")
 [node name="GlueHurtSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_n5mup")
 volume_db = -10.0
+max_distance = 500.0
 script = ExtResource("1_n5mup")

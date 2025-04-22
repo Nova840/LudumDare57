@@ -14,4 +14,5 @@ stream_2/stream = ExtResource("4_cv6qu")
 [node name="PinHurtSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_304ac")
 volume_db = -10.0
+max_distance = 500.0
 script = ExtResource("1_iic1a")

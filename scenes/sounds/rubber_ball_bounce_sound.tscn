@@ -13,5 +13,6 @@ stream_2/stream = ExtResource("4_i3xi2")
 
 [node name="RubberBallBounceSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_8g0oa")
-volume_db = -20.0
+volume_db = -10.0
+max_distance = 500.0
 script = ExtResource("1_hejdf")

@@ -13,4 +13,5 @@ stream_2/stream = ExtResource("4_epi3q")
 
 [node name="GrabSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_d4nny")
+max_distance = 500.0
 script = ExtResource("1_d4nny")
