@@ -8,3 +8,6 @@ script = ExtResource("1_qnfst")
 follow_speed = 2.0
 follow_max_speed = 1e+11
 move_deadzone = 100.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

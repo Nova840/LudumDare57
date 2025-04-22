@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy5gynhgqahue"]
+[gd_scene load_steps=6 format=3 uid="uid://dy5gynhgqahue"]
 
 [ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_7lyor"]
 [ext_resource type="AudioStream" uid="uid://12yocf6coj4h" path="res://Audio/Sound Effects/Objects/Knife/Knifebump 1.wav" id="2_7lyor"]
 [ext_resource type="AudioStream" uid="uid://bs6bvaa04owhs" path="res://Audio/Sound Effects/Objects/Knife/Knifebump 2.wav" id="3_agttj"]
 [ext_resource type="AudioStream" uid="uid://b1twys6uo8u6c" path="res://Audio/Sound Effects/Objects/Knife/Knifebump 3.wav" id="4_atbco"]
 
-[node name="KnifeBounceSound" type="AudioStreamPlayer"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7lyor"]
+streams_count = 3
+stream_0/stream = ExtResource("2_7lyor")
+stream_1/stream = ExtResource("3_agttj")
+stream_2/stream = ExtResource("4_atbco")
+
+[node name="KnifeBounceSound" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_7lyor")
 volume_db = -20.0
 script = ExtResource("1_7lyor")
-sounds = Array[AudioStream]([ExtResource("2_7lyor"), ExtResource("3_agttj"), ExtResource("4_atbco")])

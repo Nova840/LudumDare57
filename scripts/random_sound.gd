@@ -1,13 +1,9 @@
-extends AudioStreamPlayer
+extends Node
 class_name RandomSound
 
 
-@export var sounds: Array[AudioStream]
-
-@onready var random := RandomNumberGenerator.new()
-
-
 func _ready() -> void:
-	stream = sounds[random.randi_range(0, sounds.size() - 1)]
-	play()
-	await get_tree().create_timer(stream.get_length()).timeout
+	(self as Variant).play()
+	if is_instance_valid(self.stream):
+		await get_tree().create_timer(10).timeout
+	queue_free()

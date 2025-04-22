@@ -4,5 +4,5 @@
 [ext_resource type="AudioStream" uid="uid://d0vuisv3eytfk" path="res://Audio/Drawer/Draweropen.wav" id="2_phgky"]
 
 [node name="DrawerOpenSound" type="AudioStreamPlayer"]
+stream = ExtResource("2_phgky")
 script = ExtResource("1_fsms8")
-sounds = Array[AudioStream]([ExtResource("2_phgky")])

@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c34qh7aahs180"]
+[gd_scene load_steps=6 format=3 uid="uid://c34qh7aahs180"]
 
 [ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_uc5ma"]
 [ext_resource type="AudioStream" uid="uid://b6ffckdw6k0h5" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 1.wav" id="2_lknnn"]
 [ext_resource type="AudioStream" uid="uid://t2vtlkk5g0tu" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 2.wav" id="3_xtqaj"]
 [ext_resource type="AudioStream" uid="uid://ctrmv6l48h0p4" path="res://Audio/Sound Effects/Objects/Tack/Tackbump 3.wav" id="4_3vosj"]
 
-[node name="PinBounceSound" type="AudioStreamPlayer"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lknnn"]
+streams_count = 3
+stream_0/stream = ExtResource("2_lknnn")
+stream_1/stream = ExtResource("3_xtqaj")
+stream_2/stream = ExtResource("4_3vosj")
+
+[node name="PinBounceSound" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_lknnn")
 volume_db = -20.0
+autoplay = true
 script = ExtResource("1_uc5ma")
-sounds = Array[AudioStream]([ExtResource("2_lknnn"), ExtResource("3_xtqaj"), ExtResource("4_3vosj")])
