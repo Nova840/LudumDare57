@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://ciobe2ohcyuiw"]
+[gd_scene load_steps=30 format=4 uid="uid://ciobe2ohcyuiw"]
 
 [ext_resource type="Script" uid="uid://c7i64mog635is" path="res://scripts/game.gd" id="1_lc123"]
 [ext_resource type="Script" uid="uid://du3jywc0sbrek" path="res://scripts/instruction_label.gd" id="2_2vrtm"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://kq4dogevv8kq" path="res://scenes/placement_area.tscn" id="9_ppann"]
 [ext_resource type="Texture2D" uid="uid://bn1crf5372lln" path="res://images/LDGJ - Background.png" id="10_e24bg"]
 [ext_resource type="Texture2D" uid="uid://bwcox7ehvhhp8" path="res://images/LDGJ- Drawer Main No Hints.png" id="11_6t45e"]
+[ext_resource type="Script" uid="uid://dv1cltcqn1gbc" path="res://scripts/camera_move_area.gd" id="11_k7b84"]
+[ext_resource type="Script" uid="uid://42bi1jwqtvg0" path="res://scripts/enable_on_camera_can_move.gd" id="12_ld0xp"]
 [ext_resource type="TileSet" uid="uid://c0ol7btu8wjwl" path="res://images/drawer_tileset.tres" id="12_qvejs"]
 [ext_resource type="Texture2D" uid="uid://dauxhxxiinslq" path="res://images/LDGJ- Drawer Sneakyside.png" id="13_8j7kv"]
 [ext_resource type="Texture2D" uid="uid://bgnwfi63lhtr2" path="res://images/LDGJ- Drawer Vibes Shade.png" id="14_n68ut"]
@@ -23,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://dk55x21ca3uat" path="res://scenes/obstacles/rubber_band_ball.tscn" id="20_tcb2l"]
 [ext_resource type="PackedScene" uid="uid://deu4e823pbvo0" path="res://scenes/obstacles/battery.tscn" id="21_msy5j"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7b84"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68kkm"]
 texture = ExtResource("10_e24bg")
 texture_region_size = Vector2i(1024, 1024)
@@ -31,6 +35,8 @@ texture_region_size = Vector2i(1024, 1024)
 [sub_resource type="TileSet" id="TileSet_n4g7x"]
 tile_size = Vector2i(1024, 1024)
 sources/0 = SubResource("TileSetAtlasSource_68kkm")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ld0xp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld0xp"]
 
@@ -67,6 +73,7 @@ text = "%s seconds left!"
 script = ExtResource("4_k7b84")
 
 [node name="Hand" parent="." instance=ExtResource("5_ggkv2")]
+position = Vector2(0, -704.083)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("6_0u6pl")]
 follow = NodePath("../Hand")
@@ -80,6 +87,15 @@ position = Vector2(147.036, -213.427)
 rotation = -3.14159
 scale = Vector2(25.0563, -19.0852)
 
+[node name="CameraMoveArea" type="Area2D" parent="."]
+position = Vector2(159.991, 99.01)
+rotation = 1.5708
+scale = Vector2(3.76281, 39.9084)
+script = ExtResource("11_k7b84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraMoveArea"]
+shape = SubResource("RectangleShape2D_k7b84")
+
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1.46411, 53.24)
 scale = Vector2(0.1, 0.1)
@@ -87,26 +103,31 @@ tile_map_data = PackedByteArray("AADi/wkAAAAAAAAAAADi/woAAAAAAAAAAADi/wsAAAAAAAA
 tile_set = SubResource("TileSet_n4g7x")
 
 [node name="InvisibleWall1" type="StaticBody2D" parent="."]
-position = Vector2(586.581, 23.4639)
+position = Vector2(586.581, -279.605)
 scale = Vector2(3.76281, 39.9084)
+physics_material_override = SubResource("PhysicsMaterial_ld0xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall1"]
+scale = Vector2(1, 1.88402)
 shape = SubResource("RectangleShape2D_ld0xp")
 
 [node name="InvisibleWall2" type="StaticBody2D" parent="."]
-position = Vector2(-266.415, 58.8331)
-scale = Vector2(3.76281, 39.9084)
+position = Vector2(-266.415, -272.129)
+scale = Vector2(3.76281, 75.5884)
+physics_material_override = SubResource("PhysicsMaterial_ld0xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
 shape = SubResource("RectangleShape2D_ld0xp")
 
 [node name="InvisibleWall3" type="StaticBody2D" parent="."]
-position = Vector2(159.99, -230.926)
+position = Vector2(159.991, -391.86)
 rotation = 1.5708
 scale = Vector2(3.76281, 39.9084)
+physics_material_override = SubResource("PhysicsMaterial_ld0xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall3"]
 shape = SubResource("RectangleShape2D_ld0xp")
+script = ExtResource("12_ld0xp")
 
 [node name="DrawerMain" type="Sprite2D" parent="."]
 position = Vector2(79.5085, 35.2521)
@@ -1653,3 +1674,5 @@ position = Vector2(458, 696)
 
 [node name="Battery" parent="." instance=ExtResource("21_msy5j")]
 position = Vector2(-76, 1732)
+
+[connection signal="body_entered" from="CameraMoveArea" to="CameraMoveArea" method="_on_body_entered"]
