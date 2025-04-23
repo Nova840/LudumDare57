@@ -87,11 +87,12 @@ position = Vector2(147.036, -213.427)
 rotation = -3.14159
 scale = Vector2(25.0563, -19.0852)
 
-[node name="CameraMoveArea" type="Area2D" parent="."]
+[node name="CameraMoveArea" type="Area2D" parent="." node_paths=PackedStringArray("fade_out_sprite")]
 position = Vector2(159.991, 99.01)
 rotation = 1.5708
 scale = Vector2(3.76281, 39.9084)
 script = ExtResource("11_k7b84")
+fade_out_sprite = NodePath("../Ldgj-DrawerSneakyside")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraMoveArea"]
 shape = SubResource("RectangleShape2D_k7b84")
@@ -140,15 +141,12 @@ tile_map_data = PackedByteArray("AAD9/wIAAgAAAAAAAAD9/wEAAgAAAAAAAAD9/wMAAQAAAAA
 tile_set = ExtResource("12_qvejs")
 
 [node name="Ldgj-DrawerSneakyside" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(79.5085, 35.2521)
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("13_8j7kv")
 
-[node name="Ldgj-DrawerVibesShade" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(79.5085, 35.2521)
-scale = Vector2(0.31, 0.31)
+[node name="Ldgj-DrawerVibesShade" type="Sprite2D" parent="Ldgj-DrawerSneakyside"]
+scale = Vector2(1, 1)
 texture = ExtResource("14_n68ut")
 
 [node name="Knife" parent="." instance=ExtResource("15_ktmsy")]
