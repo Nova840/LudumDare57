@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8wl7oj40mec4"]
 
-[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/random_sound.gd" id="1_fsms8"]
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/sound.gd" id="1_fsms8"]
 [ext_resource type="AudioStream" uid="uid://d0vuisv3eytfk" path="res://Audio/Drawer/Draweropen.wav" id="2_phgky"]
 
 [node name="DrawerOpenSound" type="AudioStreamPlayer"]

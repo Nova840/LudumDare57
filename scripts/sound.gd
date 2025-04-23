@@ -9,6 +9,5 @@ func _ready() -> void:
 	if (self as Variant) is AudioStreamPlayer2D:
 		self.max_distance = MAX_DISTANCE
 	(self as Variant).play()
-	if is_instance_valid(self.stream):
-		await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(10).timeout
 	queue_free()
