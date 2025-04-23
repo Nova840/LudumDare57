@@ -13,6 +13,5 @@ stream_2/stream = ExtResource("4_3vosj")
 
 [node name="PinBounceSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_lknnn")
-volume_db = -10.0
 autoplay = true
 script = ExtResource("1_uc5ma")

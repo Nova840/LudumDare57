@@ -4,7 +4,7 @@ class_name BounceSoundPlayer
 
 static var recent_sounds_played_times: Array[float] = []
 const NUM_SOUNDS: int = 5
-const NUM_SOUNDS_TIME: int = 1
+const NUM_SOUNDS_TIME: float = .5
 
 @export var bounce_sound_scene: PackedScene
 @export var bounce_sound_speed_threshold: float = 200
@@ -26,7 +26,8 @@ func _body_entered(body: Node2D) -> void:
 	if relative_velocity.length() >= bounce_sound_speed_threshold and \
 			time_last_sound_played + bounce_sound_cooldown * 1000 <= Time.get_ticks_msec() and \
 			num_sounds_playing() < NUM_SOUNDS and \
-			Camera.instance.audio_listener.global_position.distance_to(global_position) <= Sound.MAX_DISTANCE:
+			Camera.instance.audio_listener.global_position.distance_to(global_position) <= Sound.MAX_DISTANCE and \
+			not (body is RigidBody2D and body.collision_layer & (1 << 1)):
 		var sound := bounce_sound_scene.instantiate()
 		if sound is AudioStreamPlayer2D:
 			sound.top_level = true

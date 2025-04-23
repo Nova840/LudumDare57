@@ -13,5 +13,4 @@ stream_2/stream = ExtResource("4_danjf")
 
 [node name="PaperClipBounceSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_pypr0")
-volume_db = -10.0
 script = ExtResource("1_2dtl3")
