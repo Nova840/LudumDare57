@@ -23,6 +23,6 @@ shape = SubResource("RectangleShape2D_ly3hx")
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_v7y4e")
 
-[node name="BounceSoundPlayer" type="Node" parent="."]
+[node name="BounceSoundPlayer" type="Node2D" parent="."]
 script = ExtResource("2_as3em")
 bounce_sound_scene = ExtResource("3_2kidv")

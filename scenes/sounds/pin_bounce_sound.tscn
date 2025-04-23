@@ -15,5 +15,4 @@ stream_2/stream = ExtResource("4_3vosj")
 stream = SubResource("AudioStreamRandomizer_lknnn")
 volume_db = -10.0
 autoplay = true
-max_distance = 500.0
 script = ExtResource("1_uc5ma")

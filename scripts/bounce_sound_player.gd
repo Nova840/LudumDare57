@@ -1,9 +1,10 @@
-extends Node
+extends Node2D
 class_name BounceSoundPlayer
 
 
 static var recent_sounds_played_times: Array[float] = []
 const NUM_SOUNDS: int = 5
+const NUM_SOUNDS_TIME: int = 1
 
 @export var bounce_sound_scene: PackedScene
 @export var bounce_sound_speed_threshold: float = 200
@@ -24,11 +25,12 @@ func _body_entered(body: Node2D) -> void:
 
 	if relative_velocity.length() >= bounce_sound_speed_threshold and \
 			time_last_sound_played + bounce_sound_cooldown * 1000 <= Time.get_ticks_msec() and \
-			num_sounds_playing() < NUM_SOUNDS:
+			num_sounds_playing() < NUM_SOUNDS and \
+			Camera.instance.audio_listener.global_position.distance_to(global_position) <= Sound.MAX_DISTANCE:
 		var sound := bounce_sound_scene.instantiate()
 		if sound is AudioStreamPlayer2D:
 			sound.top_level = true
-			sound.global_position = get_parent().global_position
+			sound.global_position = global_position
 		add_child(sound)
 		time_last_sound_played = Time.get_ticks_msec()
 		recent_sounds_played_times.append(Time.get_ticks_msec())
@@ -57,8 +59,7 @@ func find_rigidbody_from_shape(shape: CollisionShape2D) -> RigidBody2D:
 static func num_sounds_playing() -> int:
 	var sounds := recent_sounds_played_times.size()
 	for time in recent_sounds_played_times:
-		# Sounds playing in past 1 second
-		if time >= Time.get_ticks_msec() - 1 * 1000:
+		if time >= Time.get_ticks_msec() - NUM_SOUNDS_TIME * 1000:
 			return sounds
 		sounds -= 1
 	return sounds

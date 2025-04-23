@@ -33,6 +33,6 @@ metadata/hit = true
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_pgyeo")
 
-[node name="BounceSoundPlayer" type="Node" parent="."]
+[node name="BounceSoundPlayer" type="Node2D" parent="."]
 script = ExtResource("2_nsj4m")
 bounce_sound_scene = ExtResource("3_nsj4m")

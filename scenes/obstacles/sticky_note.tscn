@@ -37,6 +37,6 @@ texture = ExtResource("1_he06l")
 [node name="Overlay" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 
-[node name="BounceSoundPlayer" type="Node" parent="."]
+[node name="BounceSoundPlayer" type="Node2D" parent="."]
 script = ExtResource("9_ai8op")
 bounce_sound_scene = ExtResource("10_ai8op")

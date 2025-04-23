@@ -34,6 +34,6 @@ metadata/slow = true
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_xgfat")
 
-[node name="BounceSoundPlayer" type="Node" parent="."]
+[node name="BounceSoundPlayer" type="Node2D" parent="."]
 script = ExtResource("2_yb8pl")
 bounce_sound_scene = ExtResource("3_ifusp")

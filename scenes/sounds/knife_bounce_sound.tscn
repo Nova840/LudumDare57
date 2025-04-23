@@ -14,5 +14,4 @@ stream_2/stream = ExtResource("4_atbco")
 [node name="KnifeBounceSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_7lyor")
 volume_db = -10.0
-max_distance = 500.0
 script = ExtResource("1_7lyor")

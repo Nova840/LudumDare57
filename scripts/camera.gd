@@ -2,11 +2,19 @@ extends Camera2D
 class_name Camera
 
 
+static var instance: Camera
+
 @export var follow: Node2D
 
 @export var follow_speed: float
 @export var follow_max_speed: float
 @export var move_deadzone: float
+
+@onready var audio_listener: AudioListener2D = $AudioListener2D
+
+
+func _ready() -> void:
+	instance = self
 
 
 func _physics_process(delta: float) -> void:

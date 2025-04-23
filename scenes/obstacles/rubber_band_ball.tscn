@@ -28,6 +28,6 @@ position = Vector2(0, -2)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_qfgr6")
 
-[node name="BounceSoundPlayer" type="Node" parent="."]
+[node name="BounceSoundPlayer" type="Node2D" parent="."]
 script = ExtResource("2_02df7")
 bounce_sound_scene = ExtResource("3_x0p2l")

@@ -14,5 +14,4 @@ stream_2/stream = ExtResource("4_21chb")
 [node name="GlueBounceSound" type="AudioStreamPlayer2D"]
 stream = SubResource("AudioStreamRandomizer_hy4ne")
 volume_db = -10.0
-max_distance = 500.0
 script = ExtResource("1_v4u2f")
