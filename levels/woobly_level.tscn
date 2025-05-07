@@ -146,7 +146,6 @@ scale = Vector2(0.31, 0.31)
 texture = ExtResource("13_8j7kv")
 
 [node name="Ldgj-DrawerVibesShade" type="Sprite2D" parent="Ldgj-DrawerSneakyside"]
-scale = Vector2(1, 1)
 texture = ExtResource("14_n68ut")
 
 [node name="Knife" parent="." instance=ExtResource("15_ktmsy")]
