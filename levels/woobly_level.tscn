@@ -73,9 +73,10 @@ text = "%s seconds left!"
 script = ExtResource("4_k7b84")
 
 [node name="Hand" parent="." instance=ExtResource("5_ggkv2")]
-position = Vector2(0, -704.083)
+position = Vector2(150, -525)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("6_0u6pl")]
+position = Vector2(150, 100)
 follow = NodePath("../Hand")
 
 [node name="Ldgj-DrawerBackground" type="Sprite2D" parent="."]
