@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://g82ojsh03sv7"]
+[gd_scene load_steps=8 format=3 uid="uid://g82ojsh03sv7"]
 
 [ext_resource type="Script" uid="uid://ks55epcq3y6d" path="res://scripts/start.gd" id="1_0auqf"]
 [ext_resource type="Script" uid="uid://bvb5g0ah7vclm" path="res://scripts/level_button.gd" id="1_jaeev"]
+[ext_resource type="PackedScene" uid="uid://bc4lwvmyrq3sw" path="res://scenes/sounds/drawer_touch_sound.tscn" id="2_4ge6i"]
 [ext_resource type="Script" uid="uid://dq4w1jd5xjvim" path="res://scripts/quit_game_button.gd" id="2_u80x2"]
 [ext_resource type="Texture2D" uid="uid://d163864vb2cul" path="res://images/LDGJ- TitleScreen.png" id="3_bodal"]
 [ext_resource type="PackedScene" uid="uid://b8wl7oj40mec4" path="res://scenes/sounds/drawer_open_sound.tscn" id="3_kdmts"]
+[ext_resource type="PackedScene" uid="uid://dgslftg03vv2v" path="res://scenes/sounds/drawer_close_sound.tscn" id="6_y16t7"]
 
 [node name="Start" type="Node"]
 script = ExtResource("1_0auqf")
+drawer_touch_sound = ExtResource("2_4ge6i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -49,6 +52,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit Game"
 script = ExtResource("2_u80x2")
+drawer_close_sound = ExtResource("6_y16t7")
+delay = 2.0
 
+[connection signal="mouse_entered" from="TestLevelButton2" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="TestLevelButton2" to="TestLevelButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="QuitGameButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="QuitGameButton" to="QuitGameButton" method="_on_pressed"]

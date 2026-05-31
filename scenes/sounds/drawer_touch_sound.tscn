@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc4lwvmyrq3sw"]
+
+[ext_resource type="AudioStream" uid="uid://d3o50poads8t1" path="res://Audio/Drawer/Drawertouch.wav" id="1_671d6"]
+[ext_resource type="Script" uid="uid://bri8f0ipw7h4j" path="res://scripts/sound.gd" id="2_dtjso"]
+
+[node name="DrawerTouchSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_671d6")
+script = ExtResource("2_dtjso")

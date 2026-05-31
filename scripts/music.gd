@@ -2,11 +2,11 @@ extends Node
 class_name Music
 
 
+@export var volume_change_time: float = 1
+
 @onready var audio_stream_player_cello: AudioStreamPlayer = $AudioStreamPlayerCello
 @onready var audio_stream_player_melody: AudioStreamPlayer = $AudioStreamPlayerMelody
 @onready var audio_stream_player_percussion: AudioStreamPlayer = $AudioStreamPlayerPercussion
-
-@export var volume_change_time: float = 1
 
 var target_other_volume: float = 0
 
