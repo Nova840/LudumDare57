@@ -21,6 +21,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	MusicAutoload.set_music_just_synth(false)
 
 
 func _process(delta: float) -> void:

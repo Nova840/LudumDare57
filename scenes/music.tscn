@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://caa8o6eykja87"]
+[gd_scene load_steps=6 format=3 uid="uid://caa8o6eykja87"]
 
 [ext_resource type="AudioStream" uid="uid://bv77gswhm1het" path="res://Audio/Music/Walking With My Eyes Shut Cello.wav" id="1_ejojg"]
+[ext_resource type="Script" uid="uid://ep6rbjpuurj8" path="res://scripts/music.gd" id="1_wia2r"]
 [ext_resource type="AudioStream" uid="uid://ubpwjf28d0br" path="res://Audio/Music/Walking With My Eyes Shut Synths.wav" id="2_wia2r"]
 [ext_resource type="AudioStream" uid="uid://cq86swx0py0na" path="res://Audio/Music/Walking With My Eyes Shut Melody.wav" id="3_mobtd"]
 [ext_resource type="AudioStream" uid="uid://2aoislu1fr8b" path="res://Audio/Music/Walking With My Eyes Shut Percussion.wav" id="4_keplp"]
 
 [node name="Music" type="Node"]
+script = ExtResource("1_wia2r")
+volume_change_time = 2.0
 
 [node name="AudioStreamPlayerCello" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ejojg")
