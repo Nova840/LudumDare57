@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xl2u8gvtkju"]
+
+[ext_resource type="Script" uid="uid://b2kyrs0xuv7w2" path="res://scripts/music_volume_area.gd" id="1_tger7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pl"]
+size = Vector2(1000, 1000)
+
+[node name="MusicVolumeArea" type="Area2D"]
+script = ExtResource("1_tger7")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0u6pl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
