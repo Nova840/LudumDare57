@@ -4,6 +4,7 @@ extends Area2D
 @export var hand: Hand
 @export_range(1, 20500) var top_low_pass_cutoff_hz: float = 20500
 @export_range(1, 20500) var bottom_low_pass_cutoff_hz: float = 20500
+@export var low_pass_curve: Curve
 
 @onready var low_pass_shape: CollisionShape2D = $Shape
 
@@ -14,7 +15,7 @@ func _process(delta: float) -> void:
 	low_pass_filter.cutoff_hz = lerpf(
 		top_low_pass_cutoff_hz,
 		bottom_low_pass_cutoff_hz,
-		clamp(inverse_lerp(highest_lowest[0], highest_lowest[1], hand.global_position.y), 0, 1)
+		clamp(low_pass_curve.sample(inverse_lerp(highest_lowest[0], highest_lowest[1], hand.global_position.y)), 0, 1)
 	)
 
 

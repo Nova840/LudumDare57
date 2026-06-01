@@ -8,6 +8,7 @@
 
 [node name="Music" type="Node"]
 script = ExtResource("1_wia2r")
+volume_change_time = 3.0
 
 [node name="AudioStreamPlayerCello" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ejojg")
