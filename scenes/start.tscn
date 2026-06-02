@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g82ojsh03sv7"]
+[gd_scene load_steps=9 format=3 uid="uid://g82ojsh03sv7"]
 
 [ext_resource type="Script" uid="uid://ks55epcq3y6d" path="res://scripts/start.gd" id="1_0auqf"]
 [ext_resource type="Script" uid="uid://bvb5g0ah7vclm" path="res://scripts/level_button.gd" id="1_jaeev"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d163864vb2cul" path="res://images/LDGJ- TitleScreen.png" id="3_bodal"]
 [ext_resource type="PackedScene" uid="uid://b8wl7oj40mec4" path="res://scenes/sounds/drawer_open_sound.tscn" id="3_kdmts"]
 [ext_resource type="PackedScene" uid="uid://dgslftg03vv2v" path="res://scenes/sounds/drawer_close_sound.tscn" id="6_y16t7"]
+[ext_resource type="Script" uid="uid://derxrx1jx653s" path="res://scripts/version_label.gd" id="8_8itgj"]
 
 [node name="Start" type="Node"]
 script = ExtResource("1_0auqf")
@@ -54,6 +55,22 @@ text = "Quit Game"
 script = ExtResource("2_u80x2")
 drawer_close_sound = ExtResource("6_y16t7")
 delay = 2.0
+
+[node name="VersionLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Version Label"
+horizontal_alignment = 2
+vertical_alignment = 2
+script = ExtResource("8_8itgj")
 
 [connection signal="mouse_entered" from="TestLevelButton2" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="TestLevelButton2" to="TestLevelButton2" method="_on_pressed"]
