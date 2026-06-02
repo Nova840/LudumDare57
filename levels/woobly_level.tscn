@@ -80,7 +80,7 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 60.0
 offset_bottom = 28.0
-text = "Find the      !  (%s left)"
+text = "Find the       and bring it back out!"
 script = ExtResource("2_2vrtm")
 
 [node name="BatteryTextureRect" type="TextureRect" parent="UILayer"]
