@@ -221,6 +221,7 @@ position = Vector2(23, -20)
 shape = SubResource("RectangleShape2D_cwer4")
 
 [node name="Ldgj-DrawerSneakyside" type="Sprite2D" parent="."]
+z_index = 200
 position = Vector2(79.5085, 35.2521)
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("13_8j7kv")
