@@ -3,8 +3,8 @@ class_name BounceSoundPlayer
 
 
 static var recent_sounds_played_times: Array[float] = []
-const NUM_SOUNDS: int = 5
-const NUM_SOUNDS_TIME: float = .5
+const NUM_SOUNDS: int = 2
+const NUM_SOUNDS_TIME: float = .1
 
 @export var bounce_sound_scene: PackedScene
 @export var bounce_sound_speed_threshold: float = 200
