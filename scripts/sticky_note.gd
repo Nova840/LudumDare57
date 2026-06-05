@@ -9,11 +9,9 @@ class_name StickyNote
 @onready var base: Sprite2D = $Base
 @onready var overlay: Sprite2D = $Overlay
 
-@onready var random := RandomNumberGenerator.new()
-
 
 func _ready() -> void:
-	base.self_modulate = base_colors[random.randi_range(0, base_colors.size() - 1)]
-	var has_image: bool = random.randf() < chance_of_overlay
+	base.self_modulate = base_colors[randi_range(0, base_colors.size() - 1)]
+	var has_image: bool = randf() < chance_of_overlay
 	if has_image:
-		overlay.texture = overlay_textures[random.randi_range(0, overlay_textures.size() - 1)]
+		overlay.texture = overlay_textures[randi_range(0, overlay_textures.size() - 1)]
