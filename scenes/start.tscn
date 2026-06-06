@@ -22,35 +22,30 @@ grow_vertical = 2
 texture = ExtResource("3_bodal")
 expand_mode = 1
 
-[node name="TestLevelButton2" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.0
-offset_top = -17.6847
-offset_right = 56.0
-offset_bottom = 13.3153
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play"
-script = ExtResource("1_jaeev")
-drawer_open_sound = ExtResource("3_kdmts")
-level_path = "uid://ciobe2ohcyuiw"
-
-[node name="QuitGameButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
-offset_top = 34.5
+offset_top = -33.0
 offset_right = 46.0
-offset_bottom = 65.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TestLevelButton2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_jaeev")
+drawer_open_sound = ExtResource("3_kdmts")
+level_path = "uid://ciobe2ohcyuiw"
+
+[node name="QuitGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "Quit Game"
 script = ExtResource("2_u80x2")
 drawer_close_sound = ExtResource("6_y16t7")
@@ -72,7 +67,11 @@ horizontal_alignment = 2
 vertical_alignment = 2
 script = ExtResource("8_8itgj")
 
-[connection signal="mouse_entered" from="TestLevelButton2" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="TestLevelButton2" to="TestLevelButton2" method="_on_pressed"]
-[connection signal="mouse_entered" from="QuitGameButton" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="QuitGameButton" to="QuitGameButton" method="_on_pressed"]
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="mouse_entered" from="VBoxContainer/TestLevelButton2" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/TestLevelButton2" to="VBoxContainer/TestLevelButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitGameButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/QuitGameButton" to="VBoxContainer/QuitGameButton" method="_on_pressed"]

@@ -8,6 +8,11 @@ class_name QuitGameButton
 @onready var start: Start = get_tree().current_scene
 
 
+func _ready() -> void:
+	if OS.has_feature("web"):
+		queue_free()
+
+
 func _on_pressed() -> void:
 	if start.loading_level: return
 	var sound := drawer_close_sound.instantiate()
